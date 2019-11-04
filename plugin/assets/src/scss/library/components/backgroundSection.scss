@@ -1,0 +1,91 @@
+.accounts,
+.account {
+  position: relative;
+}
+
+.backgroundSection {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 475px;
+  background: {
+    position: 50% 50%;
+    size: cover;
+    repeat: no-repeat;
+  }
+}
+
+.loading {
+  &::after {
+    @include spinner(40px, $gray);
+
+    @include animation(spin 0.65s infinite linear);
+  }
+}
+
+/*
+* Modifiers 
+*/
+
+.backgroundSection--x-small {
+  height: 94px;
+}
+
+.backgroundSection--small {
+  height: 225px;
+}
+
+.backgroundSection--medium {
+  height: 357px;
+}
+
+.backgroundSection--large {
+  height: 488px;
+}
+
+.backgroundSection--x-large {
+  height: 582px;
+}
+
+@include media-query($medium-up) {
+  .backgroundSection--x-small {
+    height: 125px;
+  }
+
+  .backgroundSection--small {
+    height: 300px;
+  }
+
+  .backgroundSection--medium {
+    height: 475px;
+  }
+
+  .backgroundSection--large {
+    height: 650px;
+  }
+
+  .backgroundSection--x-large {
+    height: 775px;
+  }
+}
+
+/*
+* Children
+*/
+
+.backgroundSection__overlay {
+  @include overlay(1);
+}
+
+.backgroundSection__inner {
+  position: relative;
+  z-index: 2;
+  display: table-cell;
+  vertical-align: middle;
+  padding: $section-spacing 0;
+  // color: $color-overlay-title-text;
+}
+
+.backgroundSection .btn {
+  margin-top: $section-spacing;
+}

@@ -1,0 +1,24 @@
+.touch {
+  .wow {
+    visibility: initial;
+  }
+  .component-bg-video {
+    video {
+      display: none;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+}
+
+.wow {
+  visibility: hidden;
+}
+
+@media (max-width: $screen-sm-max ) {
+  video {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}

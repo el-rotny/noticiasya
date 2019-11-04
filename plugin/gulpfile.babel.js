@@ -60,6 +60,15 @@ const remember = require( 'gulp-remember' ); //  Adds all the files it has ever 
 const plumber = require( 'gulp-plumber' ); // Prevent pipe breaking caused by errors from gulp plugins.
 const beep = require( 'beepbeep' );
 
+/* Add Browserify */
+const browserify = require( 'browserify' );
+const source = require( 'vinyl-source-stream' );
+const buffer = require( 'vinyl-buffer' );
+const babelify = require( 'babelify' );
+
+// const log = require( 'gulplog' );
+
+
 /**
  * Custom Error Handler.
  *
@@ -119,7 +128,8 @@ gulp.task( 'styles', () => {
 			sass({
 				errLogToConsole: config.errLogToConsole,
 				outputStyle: config.outputStyle,
-				precision: config.precision
+				precision: config.precision,
+        includePaths: [ 'node_modules' ]
 			})
 		)
 		.on( 'error', sass.logError )
@@ -243,25 +253,35 @@ gulp.task( 'vendorsJS', () => {
  *     3. Renames the JS file with suffix .min.js
  *     4. Uglifes/Minifies the JS file and generates custom.min.js
  */
+
+/**
+ *
+ * @link https://gist.github.com/stsvilik/46bf34f76910fcf515ea00650134190f
+ */
 gulp.task( 'customJS', () => {
-	return gulp
-		.src( config.jsCustomSRC, { since: gulp.lastRun( 'customJS' ) }) // Only run on changed files.
-		.pipe( plumber( errorHandler ) )
-		.pipe(
-			babel({
-				presets: [
-					[
-						'@babel/preset-env', // Preset to compile your modern JS to ES5.
-						{
-							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
-						}
-					]
-				]
-			})
-		)
-		.pipe( remember( config.jsCustomSRC ) ) // Bring all files back to stream.
-		.pipe( concat( config.jsCustomFile + '.js' ) )
-		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+
+  var b = browserify({
+    entries: config.jsCustomEntry,
+    debug: true
+  });
+
+  return b
+    .transform( babelify, {
+      presets: [ '@babel/preset-env' ],
+      plugins: [ '@babel/plugin-proposal-object-rest-spread' ]
+    })
+    .bundle()
+    .pipe( source( 'index.js' ) )
+    .pipe( plumber( errorHandler ) )
+    .pipe( buffer() )
+    .pipe( sourcemaps.init({loadMaps: true}) )
+
+    // Add transformation tasks to the pipeline here.
+    // .pipe( uglify() )
+    // .on( 'error', log.error )
+		// .pipe( remember( config.jsCustomSRC ) ) // Bring all files back to stream.
+		// .pipe( concat( config.jsCustomFile + '.js' ) )
+		// .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsCustomDestination ) )
 		.pipe(
 			rename({
@@ -269,9 +289,9 @@ gulp.task( 'customJS', () => {
 				suffix: '.min'
 			})
 		)
-		.pipe( uglify() )
+		.pipe( uglify() ) // Creates min file in memory
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-		.pipe( gulp.dest( config.jsCustomDestination ) )
+		.pipe( gulp.dest( config.jsCustomDestination ) ) // Pipes min to dest.
 		.pipe( notify({ message: '\n\n✅  ===> CUSTOM JS — completed!\n', onLast: true }) );
 });
 

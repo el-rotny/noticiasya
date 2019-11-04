@@ -1,3 +1,84 @@
-body {
- font-size: 1em;
-}
+@charset 'UTF-8';
+
+/**
+ *  Built by Rodrigo Garcia
+ */
+
+/* ================ Settings ================ */
+
+@import './library/settings/variables';
+
+/* ================ Static / Vendor  ================ */
+// Static - Non Linted vendors
+// Includes libraries like bootstrap, slick, sweetalert2, etc
+@import './static/index';
+
+// normalize
+@import './library/core/normalize';
+
+/* ================ Mixins ================ */
+// Tools
+@import './library/tools/vendor-mixins';
+@import './library/tools/functions';
+@import './library/tools/mixins';
+@import './library/tools/button-variants';
+@import './library/tools/animations';
+
+/* ================ Load First  ================ */
+@import './library/fonts';
+@import './library/wraps';
+@import './library/base';
+@import './library/type';
+@import './library/nav/navbar';
+@import './library/nav/navbar-mobile';
+@import './library/nav/breadcrumbs';
+
+// Utils
+@import './library/utils/no-gutter';
+@import './library/utils/utilities';
+@import './library/utils/ratio-containers';
+
+/* ================ Core ================ */
+@import './library/core/animation-classes';
+@import './library/core/grid';
+@import './library/core/responsive-images';
+@import './library/core/buttons';
+@import './library/core/forms';
+
+@import './library/grid';
+@import './library/columns';
+
+@import './library/pace';
+
+@import './library/panels/mobile-menu';
+
+// Sections and Wrappers
+@import './library/section';
+
+// Components
+@import './library/components/buttons';
+@import './library/components/component-index';
+@import './library/components/component';
+@import './library/components/hero_component';
+@import './library/components/hover_box';
+@import './library/components/labels';
+@import './library/components/thumb-link';
+@import './library/components/figure';
+@import './library/components/panel';
+@import './library/components/backgroundSection';
+@import './library/components/spinner';
+
+// Sections
+@import './library/sections/common';
+
+// Last in Order
+@import './library/footer';
+
+// Addons
+@import './library/vendors/bootstrap-addons';
+
+/* ================ noticias ================ */
+@import './noticias/post-card';
+@import './noticias/post-common';
+@import './noticias/post-list';
+@import './noticias/post-single';

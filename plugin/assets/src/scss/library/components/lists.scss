@@ -1,0 +1,104 @@
+// List options
+
+ul {
+  line-height: 1.2em;
+}
+// [converter] extracted from `.list-unstyled` for libsass compatibility
+
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+// [converter] extracted as `@mixin list-unstyled` for libsass compatibility
+.list-unstyled {
+
+  @include list-unstyled;
+}
+
+
+// Inline turns list items into inline-block
+
+/* ================ #Lists ================ */
+
+.list--inline, .list-inline {
+
+  @include list-unstyled;
+  margin: 0;
+  padding: 0;
+  max-width: 900px;
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+
+//
+// .list-inline {
+//   @include list-unstyled;
+//   margin-left: 0px;
+//
+//   > li {
+//     display: inline-block;
+//     padding-left: 5px;
+//     padding-right: 5px;
+//   }
+// }
+
+.list-header {
+  position: relative;
+
+  @extend .group;
+  height: 16px;
+
+  h3 {
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0 10px 0 0;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    color: black;
+  }
+
+  &:after {
+    content: '';
+    border: 1px solid black;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  &.-inverse {
+    color: white;
+
+    h3 {
+      color: white;
+      background-color: $gray-darkest;
+    }
+
+    &:after {
+      border-color: white;
+    }
+  }
+}
+
+
+ul.list-colored {list-style: none}
+
+ul.list-colored li::before {
+  content: '•'; color: $brand-primary;
+  display: inline-block; width: 1em;
+  margin-left: -1em;
+  font-size: 1.2em;
+}

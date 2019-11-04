@@ -1,0 +1,46 @@
+.post-price__price {
+
+  .grid-view-item.post-price--sold-out & {
+    text-decoration: line-through;
+  }
+}
+
+.post-size__badge {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  border: 1px solid $color-primary;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  color: $color-primary;
+  text-transform: bold;
+  font-weight: bold;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  margin: 0 5px;
+
+  &:hover {
+    color: white;
+    background-color: $color-primary;
+  }
+}
+
+.post-price__sale--single {
+  // padding-left: 10px;
+}
+
+.post-price__sale,
+.post__price--sale {
+  color: $color-sale-text;
+}
+
+.post-price__sale-label {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: em($font-size-base - 1);
+}
+
+.post-price__sold-out {
+  font-weight: inherit;
+  white-space: nowrap;
+}

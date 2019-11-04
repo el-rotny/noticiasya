@@ -1,0 +1,182 @@
+// html {
+//     height:100%;
+// }
+html {
+  box-sizing: border-box;
+  height: 100%;
+  line-height: 1.5;
+  min-width: 360px;
+  font-size: $font-size-base;
+}
+
+// This hack creates auto scaling for
+// the html max width;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  font-size: $font-size-base;
+}
+
+body {
+  background-color: $color-bg;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+  color: $color-text;
+  height: 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.noScroll {
+    overflow: hidden;
+    // height: 100vh;
+    .content {
+      overflow: hidden;
+      // height: 100vh;
+    }
+  }
+}
+
+#main {
+  background: white;
+}
+
+#inner-content {
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+a:focus {
+  color: inherit;
+}
+
+a,
+button,
+.btn,
+.dropdown-toggle {
+  &:focus {
+    outline: 0 !important;
+    -moz-outline: 0 !important;
+    -webkit-outline: 0 !important;
+  }
+}
+
+/* Fast Tap
+  enables no-delay taps (FastClick-esque) on supporting browsers */
+a,
+button,
+[role='button'],
+input,
+label,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+body,
+input,
+textarea,
+button,
+select {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+// Prevent zoom on touch devices in active inputs
+
+@include media-query($medium-down) {
+  input,
+  textarea,
+  select,
+  button {
+    font-size: $font-size-mobile-input;
+  }
+}
+
+a {
+  @include fast-transitions;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+* {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+a {
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+* {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+*::selection {
+  background: mix(transparent, $brand-select, 20%);
+  color: white;
+}
+
+*::-moz-selection {
+  background: $brand-select;
+  color: white;
+}
+
+/* ================ Form element helpers ================ */
+form {
+  margin: 0;
+}
+
+// Prevent zoom on touch devices in active inputs
+
+button,
+input[type='submit'],
+label[for] {
+  cursor: pointer;
+}
+
+optgroup {
+  font-weight: $font-weight-bold;
+}
+
+// Force option color (affects IE only)
+option {
+  background-color: $color-body;
+  color: $color-body-text;
+}
+
+// hide outline on focus for elements which are given focus by JS
+[tabindex='-1']:focus {
+  outline: none;
+}

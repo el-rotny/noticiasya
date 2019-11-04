@@ -1,0 +1,135 @@
+@mixin button-variant(
+  $border-color,
+  $background-color,
+  $text-color,
+  $hover-text-color,
+  $hover-background,
+  $name: 'hello',
+  $border-width: 1.5px,
+  $disabled-bg: darken($color-disabled, 5%),
+  $disabled-color: darken($color-disabled, 20%),
+  $disabled-border: $disabled-bg,
+  $transition: 0.2s
+) {
+  border-color: $border-color;
+  background-color: $background-color;
+  color: $text-color;
+  border-width: $border-width;
+  // transition: color linear .2s, background-color linear .2s;
+
+  &:after {
+    background: $background-color;
+    color: $text-color;
+    animation: btn-flat-out cubic-bezier(0.19, 1, 0.22, 1) 0.05s forwards;
+  }
+
+  &:hover {
+    color: $hover-text-color;
+    background-color: transparent;
+    border-color: $hover-background;
+    // transition: color cubic-bezier(0.19, 1, 0.22, 1) $transition, background-color cubic-bezier(0.19, 1, 0.22, 1) $transition;
+
+    &:after {
+      background-color: $hover-background;
+      animation: #{$name} cubic-bezier(0.19, 1, 0.22, 1) 0.6s forwards;
+    }
+  }
+
+  &:focus {
+    background: $background-color !important;
+  }
+
+  &:active {
+    color: darken($background-color, 20%);
+
+    &:after {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  &.btn--action-started {
+    &::before {
+      content: '';
+      top: 50%;
+      transform: translateY(50%);
+      left: $button-x-padding;
+      opacity: 0.75;
+      transition: all 1s cubic-bezier(0.29, 0.63, 0.44, 1);
+
+      $button-spinner-color: lightend($background-color, 40%);
+
+      @include spinner(25px, $button-spinner-color);
+
+      @include animation(spin 0.65s infinite cubic-bezier(0.19, 1, 0.22, 1));
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: $disabled-bg;
+    color: $disabled-color;
+    border-color: $disabled-border;
+    &:hover {
+      color: $hover-text-color;
+      background-color: transparent;
+      border-color: $hover-background;
+      transition: color cubic-bezier(0.19, 1, 0.22, 1) $transition, background-color cubic-bezier(0.19, 1, 0.22, 1) $transition;
+    }
+  }
+
+  @include keyframes($name) {
+    0% {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+
+    25% {
+      transform: scaleY(0.7);
+      opacity: 0.5;
+      background: $hover-background;
+    }
+
+    30% {
+      background: $hover-background;
+    }
+
+    35% {
+      background: $hover-background;
+      transform: scaleY(1);
+    }
+
+    30% {
+      background: none;
+    }
+
+    55% {
+      background: $hover-background;
+      opacity: 0.7;
+    }
+
+    100% {
+      transform: scaleY(1);
+      background: $hover-background;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}

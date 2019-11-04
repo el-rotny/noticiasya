@@ -1,0 +1,120 @@
+.content {
+  //height:100%;
+}
+
+.wrap-for-hero {
+  padding-top: $navbar-height;
+}
+
+.page-wrap {
+  position: relative;
+  // padding-top: $navbar-height;
+}
+
+.page .page-wrap,
+.page .page-wrap-default {
+  position: relative;
+  padding-top: 0;
+}
+
+.wrap {
+
+  top:0;
+  right:0;
+  left:0;
+  width:100%;
+  height:100%;
+  padding-top: $navbar-height;
+
+
+  &-default {
+    padding:56px 0;
+
+    width: 100%;
+
+    @include media-query($small){
+      padding: 21px 0;
+    }
+
+    @media (min-width: $screen-md-min) {
+      padding:50px 0;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      padding:60px 0;
+    }
+  }
+}
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+.container-fluid {
+
+  @include container-fixed;
+}
+
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  $gutter-site;
+  padding-right: $gutter-site;
+
+  @include clearfix;
+
+  @include media-query($small){
+    padding-left:  $gutter-site-mobile;
+    padding-right: $gutter-site-mobile;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    max-width: $container-sm;
+  }
+
+  @media (min-width: $screen-md-min) {
+    max-width: $container-md;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    max-width: $container-lg;
+  }
+
+  @media (min-width: $screen-xl-min) {
+    max-width: $container-xl;
+  }
+
+  .container:not(.mega-container):not(.collection-filter-activity__container) {
+    padding-left:  0;
+    padding-right: 0;
+
+    @include media-query($small){
+      padding-left:  0;
+      padding-right: 0;
+    }
+  }
+
+  &--thin {
+    max-width: 1270px;
+  }
+
+  &--search {
+    max-width: 900px;
+  }
+
+}
+
+.container-inner {
+  max-width: $container-inner-width;
+  padding: 0 $section-spacing-small;
+  margin: auto;
+
+  @include media-query($medium-down) {
+    padding: 0;
+  }
+
+  &.-left {
+    padding-right:0;
+  }
+}

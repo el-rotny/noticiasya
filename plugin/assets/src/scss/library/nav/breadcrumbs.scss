@@ -1,0 +1,50 @@
+$breadcrumb-height: 52px;
+$small-breadcrumb-spacing: 5px;
+$breadcrumb-height-small: 65px;
+
+.breadcrumbs {
+  border-bottom: 1px solid $color-border;
+  font-size: $font-size-tiny;
+  line-height: $line-height-tiny;
+  letter-spacing: $letter-spacing-tiny;
+  text-transform: $headings-text-transform;
+  font-family: $tiny-font-family;
+  height: $breadcrumb-height;
+  color: $gray-mid;
+
+  @include media-query($small) {
+    height: auto;
+    padding: $small-breadcrumb-spacing 0;
+  }
+
+  ol {
+    margin-top: ($breadcrumb-height - $line-height-tiny)/2;
+    margin-bottom:  ($breadcrumb-height - $line-height-tiny)/2;
+
+    @include media-query($small) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    > .active {
+      color: $gray-base;
+    }
+  }
+
+  ol > li {
+    padding-left: 0;
+
+    @include media-query($small) {
+      // margin-top: $small-breadcrumb-spacing;
+    }
+
+    + li:before {
+      // [converter] Workaround for https://github.com/sass/libsass/issues/1115
+      $nbsp: '\00a0';
+      content: '#{$breadcrumb-separator}#{$nbsp}'; // Unicode space added since inline-block means non-collapsing white-space
+      padding: 0 5px;
+      color: $breadcrumb-color;
+
+    }
+  }
+}

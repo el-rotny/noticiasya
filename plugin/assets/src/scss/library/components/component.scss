@@ -1,0 +1,512 @@
+.component {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  margin: 0 auto;
+
+  $root: &;
+
+  &-wrap {
+    position: relative;
+    height: 100%;
+  }
+
+  &-bg {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    &-inner {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-fill {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-photo {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+
+      .placeholder-svg {
+        // background: transparent;
+      }
+    }
+
+    &-video {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+
+      video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      &-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+
+    &-video + &-photo {
+      display: none;
+    }
+  }
+
+  &-fill {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: $treatment-color;
+
+    &:before {
+      content: '';
+      position: absolute;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .-color & {
+      background: $color-primary;
+      opacity: 1;
+    }
+  }
+
+  &-body {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    color: $white;
+    padding: $line-height-computed/2;
+
+    @include media-query($medium-up) {
+      &:not(.-center) {
+        width: 50%;
+        padding: $section-spacing;
+      }
+
+      &.-center {
+        width: 70%;
+        min-width: 720px;
+        max-width: 920px;
+        padding: $section-spacing;
+      }
+    }
+
+    @include media-query($tablet-down) {
+      width: 100%;
+    }
+
+    @include media-query($large-up) {
+      padding: $section-spacing;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    p {
+      color: $white;
+    }
+
+    &-inner {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0;
+
+      @media (min-width: $screen-sm-min) {
+        vertical-align: middle;
+        padding: 20px 0;
+      }
+
+      &-top {
+        vertical-align: top;
+
+        @media (min-width: $screen-sm-min) {
+          vertical-align: top;
+        }
+      }
+    }
+
+    /*
+    * Body - Background Sizes (Split or Full )
+    */
+
+    &.-full {
+      width: 100%;
+    }
+
+    &.-half {
+      @include media-query($medium-up) {
+        width: 50%;
+      }
+    }
+
+    /*
+    * Body - Text States - Left & Right
+    */
+
+    &.-left {
+      text-align: left;
+      margin: 0;
+      float: left;
+      clear: both;
+
+      @include media-query($medium-up) {
+        float: left;
+      }
+
+      .component-text {
+        text-align: left;
+      }
+    }
+
+    &.-right {
+      text-align: left;
+      margin: 0;
+      clear: both;
+
+      @include media-query($medium-up) {
+        float: right;
+      }
+
+      #{$root}-text {
+        text-align: left;
+      }
+    }
+
+    &.-center {
+      margin: auto;
+      float: none;
+
+      @include media-query($medium-up) {
+        float: none;
+      }
+    }
+  }
+
+  &.-square {
+    @include aspect-ratio(684, 600);
+    overflow: visible;
+    height: auto;
+
+    .component-wrap {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    > #{$root}-body {
+      &.-center {
+        text-align: center;
+      }
+
+      &.-full {
+        width: 100%;
+      }
+
+      &.-half {
+        width: 100%;
+
+        @include media-query($medium-up) {
+          width: 50%;
+        }
+      }
+
+      &.-two-thirds {
+        width: 100%;
+
+        @media (min-width: $screen-xs-min) {
+          width: 100%;
+        }
+
+        @media (min-width: $screen-sm-min) {
+          width: 100%;
+        }
+
+        @media (min-width: $screen-lg-min) {
+          width: 65%;
+        }
+      }
+    }
+  }
+
+  /* No Fill */
+  &.-no-fill {
+    & > .component-wrap > .component-fill {
+      display: none;
+
+      @media (min-width: $screen-sm-min) {
+        display: none;
+      }
+    }
+  }
+
+  /* Full Fill */
+  &.-full-fill {
+    & > .component-wrap > .component-fill {
+      width: 100%;
+
+      @media (min-width: $screen-sm-min) {
+        display: block;
+      }
+    }
+
+    & > .component-wrap > .component-bg {
+      &-photo {
+        display: none;
+      }
+
+      @media (min-width: $screen-sm-min) {
+        display: none;
+      }
+    }
+  }
+
+  /* Treatment Fill */
+  &.-treatment-fill {
+    text-shadow: 1px 1px 1px rgba(black, 0.15);
+
+    & > .component-wrap > .component-fill {
+      width: 100%;
+      opacity: 0.4;
+
+      @media (min-width: $screen-sm-min) {
+        display: block;
+      }
+    }
+
+    & > .component-wrap > .component-bg {
+      &-photo {
+        display: block;
+      }
+
+      @media (min-width: $screen-sm-min) {
+        display: block;
+      }
+    }
+  }
+
+  &.dark-half-fill {
+    .component-fill {
+      opacity: 0.55;
+    }
+  }
+
+  /*
+  * Theme Color States
+  */
+
+  &.-inverse,
+  &.-dark {
+    $color-text: $white;
+    color: $color-text;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    p,
+    #{$root}-body,
+    #{$root}-header,
+    #{$root}-title,
+    #{$root}-link-text {
+      color: $color-text;
+    }
+
+    .preview {
+      &-header,
+      &-title,
+      &-text {
+        color: $color-text;
+      }
+    }
+
+    .chevron .icon {
+      color: $color-text;
+    }
+
+    .scroller_text {
+      color: $color-text;
+      text-shadow: none;
+    }
+  }
+
+  &.-converse,
+  &.-light {
+    $color-text: $gray-darkest;
+    color: $color-text;
+
+    h1,
+    h2,
+    h3,
+    .h1,
+    .h2,
+    .h3,
+    p,
+    #{$root}-body,
+    #{$root}-header,
+    #{$root}-title,
+    #{$root}-link-text {
+      color: $color-text;
+    }
+
+    .preview {
+      &-header,
+      &-title,
+      &-text {
+        color: $color-text;
+      }
+    }
+
+    .chevron .icon {
+      color: $color-text;
+    }
+
+    .scroller_text {
+      color: $color-text;
+      text-shadow: none;
+    }
+  }
+
+  /* Tab Heading */
+  &.-tab-heading {
+    height: auto;
+
+    @media (min-width: $screen-sm-min) {
+      height: auto;
+    }
+
+    #{$root}-bg {
+      display: block;
+
+      @media (min-width: $screen-sm-min) {
+        display: block;
+      }
+    }
+
+    #{$root}-fill {
+      z-index: 0;
+      display: block;
+
+      @media (min-width: $screen-sm-min) {
+        display: block;
+      }
+    }
+
+    #{$root}-body {
+      position: relative;
+      padding: $line-height-computed $line-height-computed/2;
+
+      @media (max-width: $screen-xs-max) {
+        color: $color-text;
+      }
+
+      @media (min-width: $screen-sm-min) {
+        position: relative;
+        padding: $line-height-computed * 2 $line-height-computed;
+      }
+
+      @media (min-width: $screen-md-min) {
+        position: relative;
+        padding: $line-height-computed * 2 $line-height-computed;
+      }
+
+      @media (min-width: $screen-lg-min) {
+        position: relative;
+        padding: $line-height-computed * 3 $line-height-computed;
+      }
+    }
+
+    #{$root}-text {
+      position: relative;
+      max-width: 500px;
+      margin: auto;
+
+      @media (max-width: $screen-xs-max) {
+        color: $color-text;
+      }
+
+      @media (min-width: $screen-sm-min) {
+        position: relative;
+      }
+    }
+
+    #{$root}-brief {
+      &-line {
+        display: none;
+
+        @media (min-width: $screen-sm-min) {
+          display: block;
+        }
+      }
+
+      &-store {
+        &-item {
+          @media (max-width: $screen-sm-min) {
+            color: $color-text;
+          }
+        }
+      }
+    }
+  }
+
+  *::selection {
+    background: mix(transparent, $brand-select, 20%);
+    color: white;
+  }
+}

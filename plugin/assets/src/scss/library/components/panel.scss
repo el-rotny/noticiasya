@@ -1,0 +1,9 @@
+.panel {
+  // border-radius: $border-radius-base;
+  background-color: $gray-light;
+  padding: 1em 2em 2em;
+
+  &__default {
+    background-color: white;
+  }
+}

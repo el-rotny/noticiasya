@@ -1,0 +1,26 @@
+//== Navigation;
+
+/* ================================ */
+
+$filter-navbar-height:                             50px;
+$filter-navbar-collapse-point:                     1006px;
+$filter-navbar-border-radius:                      0;
+
+// Inverse Navbar
+
+/* ================================ */
+$filter-navbar-bg:                          $brand-nav-bg;
+
+$menu-bg:                                   $brand-secondary;
+$filter-nav-item-font-weight:        200;
+$filter-nav-item-font-size:          11px;
+$filter-nav-item-line-height:        13px;
+$filter-nav-item-letter-spacing:     1px;
+
+$filter-nav-item-font-family:        $headings-font-family;
+
+$mobile-filter-nav-text-color:              $brand-primary;
+$mobile-filter-nav-text-color-hover:        lighten($brand-primary, 70%);
+$mobile-filter-nav-background-color:        rgba(255, 255, 255, 0.95);
+
+$filter-navbar-default-link-color:  $navbar-default-link-color

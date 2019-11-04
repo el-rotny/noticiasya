@@ -1,0 +1,129 @@
+.row.no-gutters, .row.row-no-gutter  {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+section.no-gutter {
+
+  .container {    
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: $screen-xs-min) {
+      padding: 0;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      padding: 0;
+    }
+
+    @media (min-width: $screen-md-min) {
+      padding: 0;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      padding: 0;
+    }
+
+    &-inner {
+      padding: 0;
+    }
+  }
+
+  .wrap {
+    padding: 0;
+
+    &-default {
+      padding: 0;
+    }
+  }
+
+  > .container {
+    padding: 0 ($grid-gutter-width/2) 0 ($grid-gutter-width/2);
+    
+    &-inner {
+      padding: 0;
+    }
+  }
+  // https://codepen.io/ncerminara/pen/hfvix
+
+  .wrap {
+    padding: 0;
+
+    &-default {
+      padding: 0;
+    }
+  }
+
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*='col-'] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .component{
+
+    &-body {
+
+      &-inner {
+        vertical-align:middle;
+        padding:0;
+      }
+    }
+    
+    // .component-body {
+    //   padding: $line-height-computed;
+    // }
+    // &.-square {
+    //   .component-body {
+    //     padding: $line-height-computed*2;
+    //   }
+    // }
+    // &.-rect {
+    //   .component-body {
+    //     padding: $line-height-computed/2;
+    //   }
+    // }
+  }
+
+}
+
+.no-gutter {
+
+  .component{
+    $root: &;
+
+    &-body {
+      text-align:center;
+
+      @media (min-width: $screen-sm-min) {
+        text-align:left;
+      }
+
+      &-inner {
+        vertical-align:middle;
+        padding:0;
+      }
+    }
+
+    &.-square {
+
+      #{$root}-body {
+        padding: $line-height-computed*2;
+      }
+    }
+  }
+
+}

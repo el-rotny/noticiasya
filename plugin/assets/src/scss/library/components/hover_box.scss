@@ -1,0 +1,84 @@
+.component {
+  $root: &;
+
+  &.-hover-box {
+    text-align: center;
+
+    #{$root}-body {
+      display: table;
+    }
+
+    #{$root}-body-inner {
+      display: table-cell;
+      vertical-align: middle;
+      width: 100%;
+      height: 100%;
+    }
+
+    #{$root}-fill {
+
+      @include default-transitions();
+    }
+
+    .icon-box .h4 {
+      font-size: 26px;
+    }
+
+    .icon-box img {
+      width: auto;
+      height: 85px;
+    }
+    
+    &:hover {
+
+      .component-fill.-dark {
+        $color-quaternary: rgba(242,244,247,1);
+        background:$color-quaternary !important;
+      }
+
+      .-default-visible {
+        position: absolute;
+        z-index: -2;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+
+        @include fast-transitions();
+      }
+
+      .-hover-visible {
+        position: initial;
+        opacity: 1;
+        visibility: visible;
+
+        @include fast-transitions();
+      }
+    }
+
+    .-default-visible {
+      position: initial;
+    }
+
+    .-hover-visible {
+      position: absolute;
+      z-index: -2;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .component-hover-box-text {
+      color: $color-text;
+    }
+
+    .component-hover-box-header {
+
+      .h2, h3 {
+        margin-top: $line-height-computed;
+        color: $brand-primary;
+        text-transform: uppercase;
+        font-size: 18px
+      }
+    }
+
+  }
+}

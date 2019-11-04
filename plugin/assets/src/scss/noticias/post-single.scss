@@ -1,0 +1,60 @@
+.post-single {
+  $root: &;
+  position: relative;
+}
+
+.post-single section {
+  padding: $section-spacing-small;
+}
+
+.post-single .post-single__seat-requests {
+  background-color: $gray-base;
+  padding-bottom: $section-spacing-small;
+
+  @include group();
+
+  @include overlay-text();
+}
+
+.post-single__meal-categories {
+  // background-color: $gray;
+  // padding: 1rem;
+  // display: block;
+  li {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    padding: $section-spacing-small $section-spacing-small 0;
+  }
+}
+
+.post-single__seat-request--header {
+  background-color: $gray-dark;
+  padding: 1em;
+  text-align: center;
+}
+
+.post-single__seat-request--content {
+  padding: $section-spacing;
+}
+
+.post-single__seat-request--content label {
+  color: $color-primary;
+  display: inline-block;
+  min-width: 50%;
+  font-weight: 300;
+}
+
+.post-single__seat-request--content ul {
+  color: $white;
+  margin-bottom: $section-spacing;
+}
+
+.post-single__seat-request--content p.form-note {
+  margin: $section-spacing 0;
+  color: $gray;
+}
+
+.post-single__seat-request--content select {
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+.pace {
+  pointer-events: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace-progress {
+  background-color: $color-primary;
+  height: 0.2rem;
+  position: fixed;
+  right: 100%;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+}

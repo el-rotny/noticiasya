@@ -1,0 +1,36 @@
+//== Scaffolding;
+/* ================================ */
+
+$body-bg: $color-body;
+$link-color: $brand-primary;
+$link-hover-color: lighten($link-color, 15);
+$link-hover-decoration: underline;
+
+$color-primary: $brand-primary;
+$color-secondary: $brand-yellow;
+
+$color-bg: white;
+$color-smooth: $brand-warning;
+$color-disabled: darken($gray-lighter, 3%);
+$color-link: white;
+$color-link-hover: darken($brand-primary, 0.5);
+$color-fill: #f2f2f2;
+$color-muted: $gray-lighter;
+$color-tertiary: $color-dark;
+$color-gray-bg: rgba(34, 32, 34, 1);
+
+$default-background-color: white;
+$alternating-background-color: #f2f5f6;
+
+/* ================ Z-Index ================ */
+$z-index-dropdown: 7 !default;
+$z-index-sub-nav: 8 !default;
+$z-index-drawer: 9 !default;
+$z-index-announcement-bar: 10 !default;
+$z-index-skip-to-content: 10000 !default; // really high to be safe of app markup
+
+/* ================ SVG ================ */
+$svg-select-icon: '';
+
+/* ================ Drawers ================ */
+$transition-drawer: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1) !default;

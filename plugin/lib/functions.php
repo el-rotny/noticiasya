@@ -1,5 +1,7 @@
 <?php
 
+// Register Custom Navigation Walker
+require_once get_template_directory() . '/utilities/nav_walker.php';
 
 /**
  * Theme setup
@@ -44,3 +46,11 @@ add_action('after_setup_theme', function () {
      */
     // add_editor_style(asset_path('styles/main.css'));
 }, 20);
+
+function prefix_modify_nav_menu_args( $args ) {
+    return array_merge( $args, array(
+        'walker' => WP_Bootstrap_Navwalker(),
+    ) );
+}
+
+add_filter( 'wp_nav_menu_args', 'prefix_modify_nav_menu_args' );

@@ -1,0 +1,149 @@
+//== Colors
+/* ================================ */
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-base: #1a1a1a; // 10%
+$gray-darkest: #333333; // 20%
+$gray-darker: #4d4d4d; // 30%
+$gray-dark: #666666; // 40%
+$gray-mid: #808080; // 50%
+$gray: #808080;
+$gray-ghosting: #e7e7e7;
+$gray-light: #eeeeee;
+$gray-lighter: #f7f7f7; // 97%
+
+$white: #ffffff;
+$brand-blue: #324879;
+$brand-blue-shadow: #26286d;
+$brand-blue-light: #dbf0f5;
+$brand-blue-lighter: #0ad3ff;
+$brand-blue-bright: #2267b0;
+$brand-yellow: #fce669;
+$brand-white: #efefef;
+
+$brand-primary: #000000;
+$brand-secondary: #324879;
+$brand-select: #000000;
+
+$brand-ghosting: #e7e7e7;
+$brand-success: $brand-blue-light;
+$brand-info: $brand-blue;
+$brand-warning: $brand-yellow;
+$brand-danger: #ed1c23;
+
+$color-dark: #000000;
+$color-primary: $brand-primary;
+
+$tab-gray: #a4a4a4;
+$caption-bg: #27b4f7;
+
+$contacts-color-primary: $color-primary;
+$contacts-color-secondary: #ffffff;
+
+$badge-bg: $gray-base;
+$muted-bg: $gray-lighter;
+$alternate-bg: $muted-bg;
+$review-star-color: #c9bda5;
+
+//== Text colors
+$color-text: $gray-dark;
+$color-text-dark: $gray-base;
+$color-text-shadow: rgba(0, 0, 0, 0.1);
+$color-body-text: $gray-dark;
+$color-sale-text: $color-primary;
+$color-sale-strike-text: $gray-mid;
+$color-small-button: #ffffff;
+$color-small-button-text: #3d4246;
+$color-text-field: #ffffff;
+$color-text-field-text: #000000;
+$color-navigation-text: $gray-mid;
+$color-inverse-text: white;
+
+$color-card-bg: #f6f6f6;
+$color-card-bg-inverse: $gray-base;
+
+// Button colors
+$color-btn-primary: $color-primary;
+$color-btn-primary-text: #ffffff;
+
+// Link buttons and secondary cta
+$color-link: $color-body-text;
+$opacity-link-hover: 1;
+$transition-link-hover: 0.1s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+
+// Backgrounds
+$color-body: #ffffff;
+$color-bg: #ffffff;
+$color-drawer-background: rgba(0, 0, 0, 0.6);
+$color-bg-alt: rgba(120, 129, 136, 0.05);
+
+// Overlays
+$color-overlay-title-text: #ffffff;
+$color-image-overlay: #000000;
+$opacity-image-overlay: 0.35;
+
+// Border colors
+$color-border: #e2e2e2;
+$gray-border: #dedede;
+
+// Helper colors for form error states
+$color-disabled: #f4f4f4;
+$color-disabled-border: #f4f4f4;
+$color-error: #d20000;
+$color-error-bg: #fff8f8;
+$color-error-border: #ffdede;
+$color-success: #19a340;
+$color-success-bg: #f8fff9;
+$color-success-border: #d2f7dd;
+
+// Forms
+$color-form-text: #333333;
+$color-error-input-text: $color-error;
+$input-padding-top-bottom: 10px;
+$input-padding-left-right: 18px;
+$input-padding-top-bottom-small: 8px;
+$input-padding-left-right-small: 15px;
+$input-group-height: 46px;
+$input-group-height-small: 42px;
+
+// Social icons
+$color-facebook: #3b5998;
+$color-twitter: #00aced;
+$color-pinterest: #cb2027;
+
+//== Element colors
+$number-label-color: #b3b3b3;
+
+//== Background Colors
+$site-bg: white;
+$lightest-bg: #f7f7f7;
+$brand-bg: $lightest-bg;
+$brand-nav-bg: black;
+
+//== Badges
+$badge-color: #ffffff;
+//** Linked badge text color on hover
+$badge-link-hover-color: #ffffff;
+$badge-bg: $brand-primary;
+
+//** Badge text color in active nav link
+// $badge-active-color:       $link-color;
+//** Badge background color in active nav link
+$badge-active-bg: #ffffff;
+
+$badge-font-weight: bold;
+$badge-line-height: 1;
+$badge-border-radius: 10px;
+
+//== Hero
+/* =============================== */
+$color-background-jumbotron-button: #ffffff;
+$color-text-jumbotron-button: #000000;
+
+//== Placeholders
+$placeholder-color-foreground: #161d25;
+$placeholder-color-background: #f9fafb;
+
+$treatment-color: rgb(29, 13, 30);
+$light-treatment-color: #ffffff;

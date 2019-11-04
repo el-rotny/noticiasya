@@ -1,0 +1,130 @@
+//== Typography;
+/* ================================ */
+
+$font-family-heading: 'comfortaa-web-bold', Helvetica, 'Helvetica Neue', 'Arial',
+  Gadget, sans-serif;
+$font-family-lead: 'comfortaa-web-light', Helvetica, 'Helvetica Neue', 'Arial',
+  Gadget, sans-serif;
+
+// Typefaces=;
+$font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+// Base;
+$font-family-base: 'Roboto', Helvetica, 'Helvetica Neue', 'Arial Black',
+  sans-serif;
+
+$buttons_font_family: 'Roboto', Helvetica, 'Helvetica Neue', 'Arial', Gadget,
+  sans-serif;
+
+// Headings;
+$hero-heading-font: $font-family-heading;
+$headings-font-family: $font-family-heading;
+$headings-font-weight: normal;
+$headings-line-height: inherit;
+$headings-letter-spacing: 0;
+$headings-text-transform: none;
+$letter-spacing: 0;
+
+$headings-small-color: $brand-primary;
+
+$buttons_font_weight: 900;
+$buttons_letter_spacing: 1px;
+
+$font-size-xlarge: 22px;
+$font-size-large: 18px;
+$font-size-md: 16px;
+$font-size-small: 14px;
+
+$font-size-base: 16px;
+
+// Headings
+
+$font-size-h1-xl: 56px;
+$line-height-h1-xl: 66px;
+$letter-spacing-h1-xl: 0;
+
+$font-size-h1: 44px;
+$line-height-h1: 1.7em;
+$letter-spacing-h1: 0;
+
+$font-size-h2: 40px;
+$line-height-h2: 1.7em;
+$letter-spacing-h2: 0;
+
+$font-size-h3: 36px;
+$line-height-h3: 1.7em;
+$letter-spacing-h3: $letter-spacing-h2;
+
+$font-size-h4: 28px;
+$line-height-h4: 1.7em;
+$letter-spacing-h4: $letter-spacing-h2;
+
+$font-size-h5: 22px;
+$line-height-h5: 1.7em;
+$letter-spacing-h5: $letter-spacing-h2;
+
+$font-size-h6: 18px;
+$line-height-h6: 1.7em;
+$letter-spacing-h6: 0;
+
+// Tiny Heading (i.e. Breadcrumbs, Tiny Labels)
+$font-size-tiny: 11px;
+$line-height-tiny: 18px;
+$letter-spacing-tiny: 1px;
+$tiny-font-family: $font-family-heading;
+
+// $breadcrumb-top-margin
+// Leads
+
+$font-size-lead-xl: 32px;
+$line-height-lead-xl: 40px;
+
+$font-size-lead-lg: 26px;
+$line-height-lead-lg: 40px;
+
+$font-size-lead-md: 22px;
+$line-height-lead-md: 30px;
+
+$font-size-lead-sm: 20px;
+$line-height-lead-sm: 30px;
+
+$font-size-lead-t: 16px;
+$line-height-lead-t: 30px;
+
+// Paragraphs
+
+$font-size-text-xl: 22px;
+$line-height-text-xl: 30px;
+
+$font-size-text-lg: 18px;
+$line-height-text-lg: 30px;
+
+$font-size-text-md: 16px;
+$line-height-text-md: 22px;
+
+$font-size-text-sm: 14px;
+$line-height-text-sm: 20px;
+
+$font-size-text-t: 14px;
+$line-height-text-t: 20px;
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base: 1.25;
+$line-height-paragraphs: 1.667;
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed: floor(
+  ($font-size-base * $line-height-base)
+) !default; // ~20px
+
+$line-height: $line-height-base;
+
+$paragraph-max-width: 920px;
+
+$font-weight-normal: 400 !default;
+$font-weight-bold: 900 !default;
+
+$font-weight-header: 600 !default;
+$font-size-header: 26px !default;
+$font-bold-titles: false !default;
+
+$font-size-base: 16px !default; // Henseforth known as 1em
+$font-size-mobile-input: 16px !default; // min 16px to prevent zooming

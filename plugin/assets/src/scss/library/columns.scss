@@ -1,0 +1,14 @@
+.col {
+
+  &.-lightning {
+    background-color: $gray
+  }
+
+  &.-right-full {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding-top: $navbar-height;
+  }
+}

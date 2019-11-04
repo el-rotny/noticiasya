@@ -1,0 +1,110 @@
+//== Navigation;
+
+/* ================================ */
+
+$navbar-height: 120px;
+$navbar-collapse-point: 1006px;
+$navbar-border-radius: 0;
+
+$logo-height: 75px;
+$nvabar-brand-width: 105px;
+
+// Default  Navbar
+
+/* ================================ */
+
+// $navbar-margin-bottom:             $line-height-computed;
+// $navbar-border-radius:             $border-radius-base;
+// $navbar-padding-horizontal:        floor(($grid-gutter-width / 2));
+// $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
+// $navbar-collapse-max-height:       340px;
+
+$navbar-default-color: $brand-primary;
+$navbar-default-bg: #ffffff;
+$navbar-default-border: darken($navbar-default-bg, 6.5%);
+
+// Navbar links
+$navbar-default-link-color: $gray-base;
+$navbar-default-link-hover-color: $brand-primary;
+$navbar-default-link-hover-bg: transparent;
+$navbar-default-link-active-color: darken($navbar-default-link-color, 30%);
+$navbar-default-link-active-bg: transparent;
+$navbar-default-link-disabled-color: #cccccc;
+$navbar-default-link-disabled-bg: transparent;
+
+// Navbar brand label
+$navbar-default-brand-color: $brand-primary;
+$navbar-default-brand-hover-color: darken($brand-primary, 10%);
+$navbar-default-brand-hover-bg: transparent;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg: #dddddd;
+$navbar-default-toggle-icon-bar-bg: #888888;
+$navbar-default-toggle-border-color: #dddddd;
+
+// Inverse Navbar
+
+/* ================================ */
+$navbar-bg: $brand-nav-bg;
+$navbar-inverse-color: #ffffff;
+$navbar-inverse-bg: $brand-nav-bg;
+$navbar-inverse-border: darken($navbar-inverse-bg, 10%);
+
+// Inverted navbar links;
+$navbar-inverse-link-color: #ffffff;
+$navbar-inverse-link-hover-color: $brand-secondary;
+$navbar-inverse-link-hover-bg: transparent;
+$navbar-inverse-link-active-color: $navbar-inverse-link-hover-color;
+$navbar-inverse-link-active-bg: transparent;
+$navbar-inverse-link-disabled-color: #444444;
+$navbar-inverse-link-disabled-bg: transparent;
+
+// Inverted navbar brand label;
+$navbar-inverse-brand-color: $navbar-inverse-link-color;
+$navbar-inverse-brand-hover-color: #ffffff;
+$navbar-inverse-brand-hover-bg: transparent;
+
+// Inverted navbar toggle;
+$navbar-inverse-toggle-hover-bg: darken($navbar-inverse-bg, 10%);
+$navbar-inverse-toggle-icon-bar-bg: #ffffff;
+$navbar-inverse-toggle-border-color: darken($navbar-inverse-bg, 10%);
+
+$menu-bg: $brand-secondary;
+$nav-font-family: $font-family-base;
+$nav-item-font-weight: 900;
+$nav-item-font-size: 13px;
+$nav-letter-spacing: 0;
+
+$mobile-nav-text-color: $brand-primary;
+$mobile-nav-text-color-hover: lighten($brand-primary, 70%);
+$mobile-nav-background-color: rgba(255, 255, 255, 0.95);
+
+// Transparent Navbar
+
+/* ================================ */
+
+$navbar-transparent-color: #ffffff;
+$navbar-transparent-bg: transparent;
+$navbar-transparent-border: transparent;
+
+// Navbar links
+$navbar-transparent-link-color: #ffffff;
+$navbar-transparent-link-hover-color: darken($link-color, 15%);
+$navbar-transparent-link-hover-bg: transparent;
+$navbar-transparent-link-active-color: #ffffff;
+$navbar-transparent-link-active-bg: transparent;
+$navbar-transparent-link-disabled-color: #cccccc;
+$navbar-transparent-link-disabled-bg: transparent;
+
+// Navbar brand label
+$navbar-transparent-brand-color: $navbar-transparent-link-color;
+$navbar-transparent-brand-hover-color: darken(
+  $navbar-transparent-brand-color,
+  10%
+);
+$navbar-transparent-brand-hover-bg: transparent;
+
+// Navbar toggle
+$navbar-transparent-toggle-hover-bg: #000000;
+$navbar-transparent-toggle-icon-bar-bg: #000000;
+$navbar-transparent-toggle-border-color: transparent;
