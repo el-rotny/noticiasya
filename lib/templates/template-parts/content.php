@@ -24,57 +24,14 @@ $display_date = isset($data->display_date) ? $data->display_date : true;
 		<?php get_entry_tags() ?>
 	</div>
 
-	<?php if ( !is_singular() ) : ?>
-		<div class="<?php echo $prefix_class . '__thumb-wrap' ?> entry-header-thumb post__thumbnail-wrap">
-		 <?php if( $display_thumb ){ get_post_thumbnail(); }?>
-	 </div>
-	<? endif; ?>
-
 	<header class="entry-header <?php echo $prefix_class . '__title' ?>">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="h6 post-single__heading entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="h6 post-card__heading entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
 
-		if ( 'post' === get_post_type() && ($display_date || $display_byline) ) :
-			?>
-			<div class="entry-meta <?php echo $prefix_class . '__meta' ?>">
-
-				<?php if( $display_date ){ get_posted_on(); }?>
-				<?php if( $display_byline ){ get_posted_by(); }?>
-
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<?php if( $display_excerpt ): ?>
 	<div class="entry-content <?php echo $prefix_class . '__body' ?>">
 
-		<?php if ( is_singular() ) : ?>
-			<div class="<?php echo $prefix_class . '__thumb-wrap' ?> entry-header-thumb">
-			 <?php if( $display_thumb ){ get_post_thumbnail(); }?>
-		 </div>
-		<? endif; ?>
-
 		<?php
-		if ( is_front_page() || is_category() || is_archive() ) {
-				the_excerpt();
-		} else {
-			the_content( sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'NoticiasYa' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
-		}
 
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'NoticiasYa' ),
