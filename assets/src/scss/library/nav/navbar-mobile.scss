@@ -1,0 +1,213 @@
+// Mobile Navbar
+$navbar-mobile-height: 56px;
+$logo-navbar-height: 45px;
+
+@mixin navbar-vertical-adjust-mobile($element-height) {
+  margin-top: ($navbar-mobile-height - $element-height)/2;
+  margin-bottom: ($navbar-mobile-height - $element-height)/2;
+}
+
+.mobile-nav-hidden {
+  @media (max-width: $navbar-collapse-point - 1) {
+    display: none !important;
+  }
+}
+
+.burger-button {
+  @media (min-width: $navbar-collapse-point) {
+    display: none;
+  }
+}
+
+@media (max-width: $navbar-collapse-point - 1) {
+  .navbar.-transparent .navbar-brand {
+    .logoLarge {
+      $logo-height: $navbar-mobile-height - 8;
+      height: $logo-height;
+
+      @include navbar-vertical-adjust-mobile($logo-height);
+
+      g.hideOnScroll {
+        opacity: 0;
+        display: none;
+      }
+
+      g.symbolGroup {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition-duration: 0.02s;
+      }
+    }
+  }
+}
+
+@include media-query($small) {
+  .nav > li > .navbar-nav-item--hosted-expriences {
+    display: none;
+  }
+}
+
+@media (max-width: $navbar-collapse-point - 1) {
+  body.navbar-is-fixed {
+    // padding-top: $navbar-mobile-height;
+
+    #mainNav {
+      top: -$navbar-mobile-height;
+    }
+  }
+}
+
+@media (max-width: $navbar-collapse-point - 1) {
+  .navbar-wrap {
+    height: $navbar-mobile-height;
+  }
+
+  .navbar {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+
+    min-height: $navbar-mobile-height;
+    margin-bottom: 0;
+    // position: relative;
+
+    &-transactional {
+      // position: absolute;
+      // top: 0px;
+      // right: 0px;
+      margin-right: 0;
+
+      > li:not(.mobile-nav-hidden) {
+        position: static;
+        display: inline-block;
+      }
+    }
+  }
+
+  .navbar-header {
+    float: left;
+  }
+
+  .navbar-brand {
+    height: 100%;
+  }
+
+  .navbar-brand svg,
+  .navbar-brand img {
+    height: $logo-navbar-height;
+    width: auto;
+
+    @include navbar-vertical-adjust-mobile($logo-navbar-height);
+  }
+
+  .cart-dropdown {
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  .cart-dropdown-menu {
+    margin-top: 18px !important;
+  }
+
+  .navbar-nav {
+    // margin-right:0;
+    margin-left: 0;
+  }
+
+  .navbar-nav > .open > a,
+  .navbar-nav > .open > a,
+  .navbar-nav > .open > a:hover,
+  .navbar-nav > .open > a:hover,
+  .navbar-nav > .open > a:focus,
+  .navbar-nav > .open > a:focus {
+    color: $brand-primary;
+  }
+
+  .navbar-nav > .open > .dropdown-menu {
+    position: absolute;
+    background-color: darken($gray-base, 4%);
+    width: 100%;
+    right: 0;
+    transform: none;
+    left: inherit;
+    padding-bottom: $section-spacing-small;
+  }
+
+  .navbar-nav {
+    max-height: $navbar-mobile-height;
+
+    @include navbar-vertical-adjust-mobile($navbar-mobile-height);
+
+    & > li > a {
+      @include navbar-vertical-adjust-mobile(40px);
+      margin-right: 15px;
+
+      // display: table-cell;
+    }
+
+    & > li > .btn--link {
+      @include navbar-vertical-adjust-mobile(13);
+      // margin-top: 0;
+      // margin-bottom: 0;
+    }
+
+    & > li > .btn {
+      // color: white !important;
+      // font-size: 11px;
+      // padding-top: 9px;
+      // padding-bottom: 9px;
+      // min-width: 185px;
+      // margin-bottom: -0.5em;
+
+      // &:hover {
+      //   color: white !important;
+      // }
+
+      margin-right: $line-height-computed;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .navbar #profile-avatar-drop {
+    $profile-drop-height-mobile: 30px;
+    width: $profile-drop-height-mobile;
+    height: $profile-drop-height-mobile;
+    display: inline-block;
+
+    @include navbar-vertical-adjust-mobile($profile-drop-height-mobile);
+  }
+
+  .burger-button {
+    float: left;
+    border: 0;
+    background-color: transparent;
+
+    $burger-button-height: 15px;
+    $burger-padding: 5px;
+    $burger-button-size: $burger-button-height + $burger-padding;
+    padding: $burger-padding;
+    height: $burger-button-height;
+    margin-top: (($navbar-mobile-height - $burger-button-size) / 2);
+    margin-bottom: (($navbar-mobile-height - $burger-button-size) / 2);
+
+    &:hover {
+      text-decoration: none !important;
+    }
+
+    .menu-icon:before {
+      content: '\E902';
+      font-family: 'icons' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: $burger-button-size;
+
+      /* Better Font Rendering */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: $brand-primary;
+      font-size: $burger-button-size;
+    }
+  }
+}

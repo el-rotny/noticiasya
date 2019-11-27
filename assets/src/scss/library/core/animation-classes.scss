@@ -1,0 +1,50 @@
+
+/* ============================================================================
+  Animation Classes and Keyframes
+============================================================================== */
+.is-transitioning {
+  // sass-lint:disable no-important
+  display: block !important;
+  visibility: visible !important;
+}
+
+@mixin animation($animation) {
+
+  @include prefix(animation, #{$animation}, moz o webkit spec);
+}
+
+@mixin keyframes($name) {
+
+  @-webkit-keyframes #{$name} {
+
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+
+    @content;
+  }
+
+  @keyframes #{$name} {
+
+    @content;
+  }
+}
+
+@include keyframes(spin) {
+
+  0% {
+
+    @include transform(rotate(0deg));
+  }
+
+  100% {
+
+    @include transform(rotate(360deg));
+  }
+}

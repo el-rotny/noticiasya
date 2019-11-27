@@ -1,0 +1,8 @@
+tmp
+obj
+bin
+*.o
+*.lib
+*.la
+node_modules
+.git

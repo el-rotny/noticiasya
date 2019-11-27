@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'avenir';
+    src: url('../fonts/avenir/Avenir-Heavy.woff2') format('woff2'),
+         url('../fonts/avenir/Avenir-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'avenir';
+    src: url('../fonts/avenir/Avenir-Roman.woff2') format('woff2'),
+        url('../fonts/avenir/Avenir-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'avenir-condensed';
+    src: url('../fonts/avenir/AvenirNextCondensed-Bold.woff2') format('woff2'),
+         url('../fonts/avenir/AvenirNextCondensed-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}

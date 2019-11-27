@@ -1,0 +1,260 @@
+
+.posts-featured {
+  // Hoist
+  $root: &;
+  // color: white;
+
+  .post {
+    // color: white;
+  }
+
+  .btn {
+    display: block;
+    margin: auto;
+  }
+}
+// .featured-flex {
+//   display: flex;
+//   flex-flow: column wrap;
+//   // align-content: space-between;
+//
+//   /* Force new columns */
+//   &::before,
+//   &::after {
+//     content: "";
+//     flex-basis: 100%;
+//     width: 0;
+//     order: 2;
+//   }
+//
+//   .post-card {
+//     width: 25%;
+//     &:first-child {
+//       width: 75%;
+//       flex: 1 1 auto
+//     }
+//     &:nth-child(2n+1) { order: 1; }
+//     &:nth-child(2n+2) { order: 3; }
+//     &:nth-child(2n)   { order: 2; }
+//
+//   }
+  // > .post-card:first-of-type {
+  //   order: 1;
+  //   width: 75%;
+  // }
+  // > .post-card:nth-of-type(2){
+  //   order: 2;
+  //   width: 25%;
+  // }
+  // > .post-card:nth-of-type(3){
+  //   order: 3;
+  //   width: 25%;
+  // }
+  // > .post-card{
+  //   order: 4;
+  //   width: 25%;
+  // }
+// }
+
+// .featured-flex {
+//   display: flex;
+//   flex-flow: column wrap;
+//   align-content: space-between;
+//   height: 9800px;
+//
+//   .post-card {
+//     width: 32%;
+//     margin-bottom: 2%; /* (100-32*3)/2 */
+//
+//     /* Re-order items into rows */
+//     &:nth-child(3n+1) { order: 1; }
+//     &:nth-child(3n+2) { order: 2; }
+//     &:nth-child(3n)   { order: 3; }
+//   }
+//   /* Force new columns */
+//   &::before,
+//   &::after {
+//     content: "";
+//     flex-basis: 100%;
+//     width: 0;
+//     order: 2;
+//   }
+//
+// }
+.posts-featured {
+  $root: &;
+
+  &--large {
+
+  }
+
+  &--small {
+
+    .post-card {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 5px;
+      padding: $line-height-computed/2 0;
+
+      &:first-of-type {
+        padding-top: 0;
+      }
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+
+      &__title {
+        margin-top: 5px;
+      }
+      &__title .h6{
+        font-size: 14px;
+      }
+      &__tags + .post-card__title {
+        margin: 0 0 0;
+      }
+      .posted-on, .byline {
+        // display: none;
+      }
+
+    }
+  }
+  &-title {
+    text-align: left;
+    padding-top: 10px;
+    clear: both;
+    color: black;
+
+    svg {
+      width: 165px;
+      height: 60px;
+    }
+
+    svg path {
+      fill: currentColor;
+    }
+
+    .thin-extended, .thin-large {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+      padding-top: 0;
+      color: $gray;
+      display: block;
+    }
+
+    .h2, h2 {
+      margin: 0;
+      padding: 0;
+      font-size: floor($font-size-base * 3.6);
+    }
+
+    p { max-width: 650px; margin-left: auto; margin-right: auto }
+    position: relative;
+    z-index: 2;
+  }
+
+  &-link-text {
+
+    @include underlined-link();
+    color: primary;
+  }
+
+  div[class$='-column'] {
+    display: table-cell;
+    vertical-align: middle;
+
+    @media (max-width:$screen-sm-max) {
+      display: block
+    }
+  }
+
+  #{$root}-image-column {
+    width: 20%;
+    padding: 0 $line-height-computed*2;
+
+    @media (max-width:$screen-sm-max) {
+      width: 100%;
+      padding: $line-height-computed*2;
+    }
+
+    img {
+      max-width: 160px;
+      margin: auto;
+
+      @media (max-width:$screen-sm-max) {
+        max-width: 120px;
+      }
+    }
+  }
+
+  #{$root}-title-column {
+    width: 40%;
+
+    @media (max-width:$screen-sm-max) {
+      width: 100%;
+    }
+  }
+
+  #{$root}-info-column {
+    width: 40%;
+
+    @media (max-width:$screen-sm-max) {
+      width: 100%;
+    }
+  }
+
+  &-info {
+    color: black;
+
+    svg {
+      max-width:65px;
+      max-height:65px;
+      margin: auto;
+    }
+  }
+
+  &.-primary {
+    background-color: $brand-primary;
+  }
+
+  &.-pop {
+    background-color: $brand-secondary;
+  }
+
+  &.-dark {
+    background:$gray-darker;
+  }
+
+  &.-mute {
+    $color-quaternary: rgba(242,244,247,1);
+    background:$color-quaternary;
+  }
+
+  &.-padded {
+    padding: 28px 0 56px;
+
+    @media (min-width: $screen-xs-min) {
+      padding:35px 0 70px;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      padding:40px 0 80px;
+    }
+  }
+
+
+  *::selection {
+    background:mix(transparent, $brand-select, 20%);
+    color: white;
+  }
+}
+
+.tab-section {
+
+  > .container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+}

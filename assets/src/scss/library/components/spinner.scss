@@ -1,0 +1,36 @@
+.spinner {
+  position: absolute;
+  background-color: rgba($white, 0.85);
+  height: 100%;
+  width: 100%;
+  min-height: 200px;
+  top: 0;
+  left: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    @include spinner(60px, $color-primary);
+    stroke-width: 1 !important;
+
+    @include animation(spin 0.65s infinite linear);
+  }
+
+  &--empty {
+    position: relative;
+  }
+
+  animation: rotator 1.4s linear infinite;
+
+  .path {
+    stroke-width: 1 !important;
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  }
+}

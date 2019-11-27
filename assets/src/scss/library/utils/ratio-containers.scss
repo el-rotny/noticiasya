@@ -1,0 +1,10 @@
+.box {
+  background: no-repeat;
+  background-color: #f7f7f7;
+  background-size: contain;
+}
+
+.ratio-container {
+  content: '';
+  @include aspect-ratio(16, 9);
+}

@@ -1,0 +1,53 @@
+//== Navigation;
+
+/* ================================ */
+
+$menu-navbar-height:                             50px;
+$menu-navbar-collapse-point:                     1006px;
+$menu-navbar-border-radius:                      0;
+
+// Inverse Navbar
+
+/* ================================ */
+$menu-navbar-bg:                            #F0F0F0;
+
+$menu-bg:                                   $menu-navbar-bg;
+$menu-nav-item-font-weight:                 200;
+$menu-nav-item-font-size:                   14px;
+$menu-nav-item-line-height:                 16px;
+$menu-nav-item-letter-spacing:              0px;
+
+$menu-nav-item-font-family:                 $headings-font-family;
+
+$mobile-menu-nav-text-color:                $brand-primary;
+$mobile-menu-nav-text-color-hover:          lighten($brand-primary, 70%);
+$mobile-menu-nav-background-color:          rgba(255, 255, 255, 0.95);
+
+$menu-navbar-default-link-color:            $navbar-default-link-color;
+
+// Color
+$nacional-color: #FFC300;
+$local-color: #3DACF3;
+$imagracion-color: #A157B2;
+$salud-color: #02D0C4;
+$tendencias-color: #FB3397;
+$videos-color: #FB7833;
+$servicions-color: #B5B5B5;
+
+$nacional: 'nacional';
+$local: 'local';
+$inmigracion: 'inmigracion';
+$salud: 'salud';
+$tendencias: 'tendencias';
+$videos: 'videos';
+$servicios: 'servicios';
+
+$brand-colors: (
+  $nacional: #FFC300,
+  $local: #3DACF3,
+  $inmigracion: #A157B2,
+  $salud: #02D0C4,
+  $tendencias: #FB3397,
+  $videos: #FB7833,
+  $servicios: #B5B5B5,
+)

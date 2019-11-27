@@ -1,0 +1,403 @@
+/* Grid 5ths columns */
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.col-xs-5ths {
+  float: left;
+  width: 20%;
+}
+
+@media (min-width: 768px) {
+  .col-sm-5ths {
+    float: left;
+    width: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-5ths {
+    float: left;
+    width: 20%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-lg-5ths {
+    float: left;
+    width: 20%;
+  }
+}
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-menu {
+  border-radius: 0;
+}
+
+.dropdown-menu > li > [role='menuitem'] {
+  // padding: 0;
+  position: relative;
+
+  span {
+    display: inline-block;
+    margin: -3px -20px;
+    padding: 3px 20px;
+    width: calc(100% + 40px);
+  }
+}
+
+// Three Level Menus
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  -webkit-border-radius: 0 6px 6px;
+  -moz-border-radius: 0 6px 6px;
+  border-radius: 0 6px 6px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-submenu > a:after {
+  content: ' ';
+  display: block;
+  float: right;
+  width: 0;
+  height: 0;
+  margin-top: 5px;
+  margin-right: -10px;
+  border-width: 5px 0 5px 5px;
+  border-style: solid;
+  border-color: transparent;
+  border-left-color: #cccccc;
+}
+
+.dropdown-submenu:hover > a:after {
+  border-left-color: #ffffff;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
+}
+
+// Inverse navbar
+.navbar-transparent {
+  background-color: $navbar-transparent-bg;
+  border-color: $navbar-transparent-border;
+
+  .navbar-brand {
+    color: $navbar-transparent-brand-color;
+
+    &:hover,
+    &:focus {
+      color: $navbar-transparent-brand-hover-color;
+      background-color: $navbar-transparent-brand-hover-bg;
+    }
+  }
+
+  navbar-nav-item dropdown-toggle .navbar-text {
+    color: $navbar-transparent-color;
+  }
+
+  .navbar-nav {
+    > li > .btn--link {
+      color: $navbar-transparent-link-color;
+
+      & + .btn--link {
+        border-left-color: darken($navbar-transparent-link-color, 25%);
+      }
+    }
+
+    > li > a {
+      color: $navbar-transparent-link-color;
+
+      svg {
+        color: $navbar-transparent-link-color;
+      }
+
+      &:hover,
+      &:focus {
+        color: $navbar-transparent-link-hover-color;
+        background-color: $navbar-transparent-link-hover-bg;
+      }
+      // &.cart-toggle svg path {
+      //   stroke: $navbar-transparent-link-hover-color;
+      // }
+      &.btn.-flat {
+        border-color: $navbar-transparent-link-color;
+      }
+    }
+
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-transparent-link-active-color;
+        background-color: $navbar-transparent-link-active-bg;
+      }
+    }
+
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-transparent-link-disabled-color;
+        background-color: $navbar-transparent-link-disabled-bg;
+      }
+    }
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border-color: $navbar-transparent-toggle-border-color;
+
+    &:hover,
+    &:focus {
+      background-color: $navbar-transparent-toggle-hover-bg;
+    }
+
+    .icon-bar {
+      background-color: $navbar-transparent-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: darken($navbar-transparent-bg, 7%);
+  }
+
+  // Dropdowns
+  .navbar-nav {
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navbar-transparent-link-active-bg;
+        color: $navbar-transparent-link-active-color;
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      // Dropdowns get custom display
+      .open .dropdown-menu {
+        > .dropdown-header {
+          border-color: $gray-base;
+        }
+
+        .divider {
+          background-color: #e3e3e3;
+        }
+
+        > li > a {
+          color: $navbar-transparent-link-color;
+
+          &:hover,
+          &:focus {
+            color: $navbar-transparent-link-hover-color;
+            background-color: $navbar-transparent-link-hover-bg;
+          }
+        }
+
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-transparent-link-active-color;
+            background-color: $navbar-transparent-link-active-bg;
+          }
+        }
+
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $navbar-transparent-link-disabled-color;
+            background-color: $navbar-transparent-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-link {
+    color: $navbar-transparent-link-color;
+
+    &:hover {
+      color: $navbar-transparent-link-hover-color;
+    }
+  }
+
+  .btn-link {
+    color: $navbar-transparent-link-color;
+
+    &.-flat {
+      border-color: $navbar-transparent-link-color;
+    }
+
+    &:hover,
+    &:focus {
+      color: $navbar-transparent-link-hover-color;
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: $navbar-transparent-link-disabled-color;
+      }
+    }
+  }
+}
+
+.modal.in .modal-dialog {
+  top: 50%;
+  transform: translate(0, -50%);
+  margin: 0 auto;
+}
+
+.modal-content {
+  // position: relative;
+  // background-color: $modal-content-bg;
+  // border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
+  // border: 1px solid $modal-content-border-color;
+  border-radius: 0;
+  // @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  // background-clip: padding-box;
+  // // Remove focus outline from opened modal
+  // outline: 0;
+  max-height: 100vh;
+  overflow: auto;
+}
+
+.modal-body {
+  padding-top: $section-spacing/2;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+
+  .medium-down--one-half:first-of-type {
+    padding-right: $section-spacing;
+  }
+
+  .form-card-column {
+    @include media-query($medium-up) {
+      padding-right: $section-spacing-small;
+    }
+  }
+
+  .form-column.medium-up--one-quarter + .form-column.medium-up--three-quarters,
+  .form-column.medium-up--one-third + .form-column.medium-up--two-thirds {
+    &:before {
+      @include media-query($medium-up) {
+        content: '';
+        position: absolute;
+        height: 100%;
+        border-left: 1px solid $gray-border;
+        left: 22%;
+      }
+    }
+  }
+
+  .form-column.medium-down--one-half + .form-column.medium-down--one-half {
+    &:before {
+      @include media-query($medium-up) {
+        content: '';
+        position: absolute;
+        height: 100%;
+        border-left: 1px solid $gray-border;
+        left: 50%;
+      }
+    }
+  }
+}
+
+.modal-dialog .modal-content {
+  border: 0;
+}
+
+.modal-dialog {
+  width: $modal-md;
+  max-width: $modal-max-md;
+  margin: 30px auto;
+  position: relative;
+
+  @include media-query($small) {
+    width: 95%;
+  }
+
+  @media (max-width: $navbar-collapse-point - 1) {
+    width: 95%;
+  }
+}
+
+.modal-body .modal-inner {
+  padding: 2rem;
+}
+
+.modal-body .modal-inner.modal-inner--centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 100%;
+}
+
+.modal-dialog .modal-footer {
+  background-color: $gray;
+  color: $white;
+  border-top: 0;
+}
+
+.modal-dialog.modal-lg {
+  max-width: $modal-max-lg;
+
+  @include media-query($small) {
+    width: 95%;
+  }
+
+  @media (max-width: $navbar-collapse-point - 1) {
+    width: 95%;
+  }
+  // @include media-query($widescreen) {
+  //   max-width: $modal-max-lg + 50;
+  // }
+}
+
+.modal-dialog.modal-sm {
+  width: $modal-max-sm;
+
+  @include media-query($small) {
+    width: 95%;
+  }
+
+  @media (max-width: $navbar-collapse-point - 1) {
+    width: 95%;
+  }
+}

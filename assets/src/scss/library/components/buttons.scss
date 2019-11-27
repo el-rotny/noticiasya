@@ -1,0 +1,862 @@
+.input-group__btn {
+  .btn,
+  .btn {
+    height: $input-group-height-small;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: -$section-spacing-small;
+
+    @include media-query($medium-up) {
+      height: $input-group-height;
+    }
+  }
+}
+
+.pagination {
+  .btn,
+  .btn {
+    min-width: 0;
+    padding: 5px;
+  }
+}
+
+.btn.btn--small,
+.btn.btn--sm {
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 1.5em;
+  padding: 5px 10px;
+}
+
+.btn.btn-md,
+.btn.btn-md {
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 1.5em;
+  padding: 5px 10px;
+}
+
+input.btn,
+input.btn {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 12px 17px;
+  font-size: 14px;
+  min-width: 165px;
+  background: none;
+  line-height: 1.2em;
+  border: 1.5px $color-primary solid;
+  border-radius: $button-border-radius;
+
+  font-family: $buttons_font_family;
+  font-weight: $buttons_font_weight;
+  letter-spacing: $buttons_letter_spacing;
+  text-transform: uppercase;
+  text-align: center;
+  color: $brand-primary;
+
+  // @include default-transitions();
+
+  &:hover {
+    color: white;
+    background-color: $brand-primary;
+    border-color: $color-primary;
+
+    &:after {
+      animation: btn-flat-hover linear 0.6s forwards;
+    }
+  }
+
+  &:active {
+    &:after {
+      opacity: 0;
+    }
+  }
+}
+
+/* Button Group */
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  &:after {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  &:after {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  &:after {
+    border-radius: 0;
+  }
+}
+
+.btn-group {
+  .btn:after,
+  .btn:after {
+  }
+}
+// .btn--link {
+//   background-color: transparent;
+//   border: 0;
+//   margin: 0;
+//   padding-left: 1rem;
+//   padding-right: 1rem;
+//   padding-top: 0;
+//   padding-bottom: 0;
+//   color: inherit;
+//   text-align: center;
+//   display: inline-block;
+//   width: auto;
+//   font-weight: ihnerit;
+//   font-size: inherit;
+//
+//   &:hover,
+//   &:focus {
+//     opacity: $opacity-link-hover;
+//     text-decoration: underline;
+//   }
+//
+//   .icon {
+//     vertical-align: middle;
+//   }
+// }
+
+.btn,
+.btn {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  vertical-align: middle;
+  padding: $button-y-padding $button-x-padding;
+  font-size: 14px;
+  min-width: 260px;
+  line-height: 1.2em;
+  border: 1.5px $color-primary solid;
+  font-family: $buttons_font_family;
+  font-weight: $buttons_font_weight;
+  letter-spacing: $buttons_letter_spacing;
+  text-transform: uppercase;
+  text-align: center;
+  border-color: $color-primary;
+  color: white;
+  border-radius: $button-border-radius;
+
+  .input-group & {
+    min-width: 130px;
+  }
+
+  transition: width 0.6s cubic-bezier(0.19, 1, 0.22, 1), height 0.6s cubic-bezier(0.19, 1, 0.22, 1), color linear 0.2s;
+
+  @include media-query($medium-down) {
+    padding: 10px 17px;
+  }
+
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    background-color: $color-primary;
+    color: $color-primary;
+    animation: btn-flat-2-out linear 0.2s forwards;
+    border-radius: $button-border-radius;
+  }
+
+  &:hover {
+    color: $color-primary;
+    text-decoration: none;
+    background-color: white;
+    // border-color: white;
+    &:after {
+      animation: btn-flat-2-hover linear 0.2s forwards;
+    }
+  }
+
+  &:active {
+    color: $color-primary;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+
+    &:after {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+
+  &:disabled:not(.btn--link),
+  &[disabled]:not(.btn--link) {
+    border-color: $color-disabled;
+    background-color: $color-disabled;
+    color: darken($color-disabled, 10%);
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      border-color: $color-disabled;
+      background: none;
+      color: $color-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  // Allows for spinner on all buttons
+  &.btn--action-started {
+    &::before {
+      content: '';
+      top: 50%;
+      transform: translateY(50%);
+      left: $button-x-padding;
+      opacity: 0.75;
+      transition: all 1s cubic-bezier(0.29, 0.63, 0.44, 1);
+      $button-spinner-color: #ffffff;
+
+      @include spinner(25px, $button-spinner-color);
+
+      @include animation(spin 0.65s infinite linear);
+    }
+  }
+
+  &.btn--flat,
+  &.btn--outline {
+    color: $brand-primary;
+
+    &:after {
+      background: darken($color-primary, 20%);
+      color: #000000;
+      opacity: 0;
+      animation: btn-flat-out linear 0.25s forwards;
+    }
+
+    &:hover {
+      color: white;
+      border-color: darken($color-primary, 20%);
+
+      &:after {
+        animation: btn-flat-hover linear 0.6s forwards;
+      }
+    }
+
+    &:active {
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    // &.btn--dark {
+    //   border-color: $gray;
+    //
+    //   &:after {
+    //     background: $gray;
+    //   }
+    //
+    //   &:hover {
+    //     background: transparent;
+    //
+    //     &:after {
+    //       background-color: darken($gray, 20%);
+    //       animation-name: btn-flat-dark-hover;
+    //     }
+    //   }
+    // }
+  }
+
+  &.btn--full {
+    width: 100%;
+  }
+
+  &.btn--white {
+    @include button-variant(
+      $border-color: #C4C4C4,
+      $background-color: $site-bg,
+      $text-color: $gray,
+      $hover-text-color: black,
+      $hover-background: darken($site-bg, 20%),
+      $name: 'btn--white'
+    );
+  }
+
+  &.btn--link {
+    @include button-variant(
+      $border-color: transparent,
+      $background-color: transparent,
+      $text-color: inherit,
+      $hover-text-color: $color-primary,
+      $hover-background: transparent,
+      $name: 'btn--link',
+      $disabled-bg: transparent,
+      $disabled-color: $text-color,
+      $disabled-border: transparent,
+      $transition: 0.1s
+    );
+
+    &::before { content: none; }
+
+    &::after { content: none; }
+    // transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.1s !important;
+  }
+
+  &.btn--fb {
+    $facebook-blue: #3b5998;
+
+    @include button-variant(
+      $border-color: $facebook-blue,
+      $background-color: $facebook-blue,
+      $text-color: $white,
+      $hover-text-color: $white,
+      $hover-background: darken($facebook-blue, 10%),
+      $name: 'btn--fb'
+    );
+  }
+
+  &.btn--google {
+    $google-red: #db3236;
+
+    @include button-variant(
+      $border-color: $gray,
+      $background-color: $white,
+      $text-color: $gray,
+      $hover-text-color: darken($gray, 10%),
+      $hover-background: darken($white, 10%),
+      $name: 'btn--google',
+      $border-width: 1.5px
+    );
+  }
+
+  &.btn--dark {
+    @include button-variant(
+      $border-color: $gray,
+      $background-color: $gray,
+      $text-color: $white,
+      $hover-text-color: $white,
+      $hover-background: darken($gray, 20%),
+      $name: 'btn--dark'
+    );
+  }
+
+  &.btn--darker {
+    @include button-variant(
+      $border-color: $gray-mid,
+      $background-color: $gray-mid,
+      $text-color: $white,
+      $hover-text-color: $white,
+      $hover-background: darken($gray-mid, 20%),
+      $name: 'btn--darker'
+    );
+  }
+
+  &.btn--black, .btn-secondary {
+    @include button-variant(
+      $border-color: black,
+      $background-color: black,
+      $text-color: $white,
+      $hover-text-color: $white,
+      $hover-background: darken(black, 20%),
+      $name: 'btn--darker'
+    );
+  }
+
+  &.btn--email {
+    @include button-variant(
+      $border-color: $gray-dark,
+      $background-color: $gray-dark,
+      $text-color: $white,
+      $hover-text-color: $white,
+      $hover-background: darken($gray-dark, 20%),
+      $name: 'btn--email'
+    );
+  }
+
+  &.btn--dimsiss {
+    min-width: 0;
+
+    border-color: $gray-lighter;
+    color: $gray;
+
+    transition: color linear 0.2s;
+
+    &:after {
+      background: $gray-lighter;
+      color: $color-primary;
+      animation: btn-flat-2-out linear 0.2s forwards;
+    }
+
+    &:hover {
+      color: $gray;
+
+      &:after {
+        animation: btn-flat-2-hover linear 0.2s forwards;
+      }
+    }
+
+    &:active {
+      color: $color-tertiary;
+
+      &:after {
+        height: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  &:disabled:not(.btn--link),
+  &:disabled:hover:not(.btn--link),
+  &:disabled:focus:not(.btn--link),
+  &:disabled:active:not(.btn--link),
+  &[disabled]:not(.btn--link),
+  &[disabled]:hover:not(.btn--link),
+  &[disabled]:focus:not(.btn--link),
+  &[disabled]:active:not(.btn--link) {
+    border-color: $color-disabled;
+    // color: $color-disabled;
+    background-color: $color-disabled;
+    color: darken($color-disabled, 10%);
+
+    &:after {
+      animation: none !important;
+      opacity: 0 !important;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $color-disabled;
+      background: none;
+      color: $color-disabled;
+    }
+  }
+
+  &.btn--audio {
+    overflow: hidden;
+    margin: 0 -2px;
+    padding: 0;
+    border: 0;
+
+    cursor: pointer;
+    background: none;
+    outline: none;
+    transition: opacity 0.2s;
+
+    span {
+      display: inline-block;
+      vertical-align: bottom;
+      width: 1px;
+      height: 20px;
+      max-height: 20px;
+      margin: 0 2px;
+
+      background: $color-primary;
+
+      animation-name: btn-audio-bar-1;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+
+      transition: all 0.5s ease-in-out;
+
+      &:nth-child(1) {
+        animation-name: btn-audio-bar-1;
+        animation-duration: 3.3s;
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(2) {
+        animation-name: btn-audio-bar-2;
+        animation-duration: 3.1s;
+        animation-delay: 0.1s;
+      }
+
+      &:nth-child(3) {
+        animation-name: btn-audio-bar-3;
+        animation-duration: 3.2s;
+        animation-delay: 0.1s;
+      }
+
+      &:nth-child(4) {
+        animation-name: btn-audio-bar-4;
+        animation-duration: 3.5s;
+        animation-delay: 0.1s;
+      }
+
+      &:nth-child(5) {
+        animation-name: btn-audio-bar-5;
+        animation-duration: 2.9s;
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(6) {
+        animation-name: btn-audio-bar-6;
+        animation-duration: 3s;
+        animation-delay: 0.3s;
+      }
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &.btn--off {
+      span {
+        max-height: 2px;
+      }
+    }
+  }
+}
+
+@keyframes btn-audio-bar-1 {
+  0% {
+    height: 10px;
+  }
+
+  12.5% {
+    height: 13px;
+  }
+
+  25% {
+    height: 5px;
+  }
+
+  37.5% {
+    height: 15px;
+  }
+
+  50% {
+    height: 20px;
+  }
+
+  62.5% {
+    height: 5px;
+  }
+
+  75% {
+    height: 20px;
+  }
+
+  87.5% {
+    height: 15px;
+  }
+
+  100% {
+    height: 10px;
+  }
+}
+
+@keyframes btn-audio-bar-2 {
+  0% {
+    height: 12px;
+  }
+
+  12.5% {
+    height: 7px;
+  }
+
+  25% {
+    height: 8px;
+  }
+
+  37.5% {
+    height: 14px;
+  }
+
+  50% {
+    height: 20px;
+  }
+
+  62.5% {
+    height: 5px;
+  }
+
+  75% {
+    height: 16px;
+  }
+
+  87.5% {
+    height: 14px;
+  }
+
+  100% {
+    height: 12px;
+  }
+}
+
+@keyframes btn-audio-bar-3 {
+  0% {
+    height: 14px;
+  }
+
+  12.5% {
+    height: 5px;
+  }
+
+  25% {
+    height: 10px;
+  }
+
+  37.5% {
+    height: 5px;
+  }
+
+  50% {
+    height: 20px;
+  }
+
+  62.5% {
+    height: 5px;
+  }
+
+  75% {
+    height: 20px;
+  }
+
+  87.5% {
+    height: 16px;
+  }
+
+  100% {
+    height: 14px;
+  }
+}
+
+@keyframes btn-audio-bar-4 {
+  0% {
+    height: 16px;
+  }
+
+  12.5% {
+    height: 20px;
+  }
+
+  25% {
+    height: 6px;
+  }
+
+  37.5% {
+    height: 10px;
+  }
+
+  50% {
+    height: 20px;
+  }
+
+  62.5% {
+    height: 5px;
+  }
+
+  75% {
+    height: 13px;
+  }
+
+  87.5% {
+    height: 10px;
+  }
+
+  100% {
+    height: 16px;
+  }
+}
+
+@keyframes btn-audio-bar-5 {
+  0% {
+    height: 4px;
+  }
+
+  12.5% {
+    height: 20px;
+  }
+
+  25% {
+    height: 8px;
+  }
+
+  37.5% {
+    height: 12px;
+  }
+
+  50% {
+    height: 18px;
+  }
+
+  62.5% {
+    height: 5px;
+  }
+
+  75% {
+    height: 20px;
+  }
+
+  87.5% {
+    height: 15px;
+  }
+
+  100% {
+    height: 4px;
+  }
+}
+
+@keyframes btn-audio-bar-6 {
+  0% {
+    height: 12px;
+  }
+
+  12.5% {
+    height: 20px;
+  }
+
+  25% {
+    height: 8px;
+  }
+
+  37.5% {
+    height: 14px;
+  }
+
+  50% {
+    height: 5px;
+  }
+
+  62.5% {
+    height: 5px;
+  }
+
+  75% {
+    height: 20px;
+  }
+
+  87.5% {
+    height: 14px;
+  }
+
+  100% {
+    height: 12px;
+  }
+}
+
+@keyframes btn-flat-dark-hover {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  15% {
+    transform: scaleY(0.7);
+    opacity: 0.5;
+    background: #000000;
+  }
+
+  20% {
+    background: none;
+  }
+
+  25% {
+    background: #000000;
+    transform: scaleY(1);
+  }
+
+  30% {
+    background: none;
+  }
+
+  35% {
+    background: #000000;
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes btn-flat-hover {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  15% {
+    transform: scaleY(0.7);
+    opacity: 0.5;
+    background: #ffffff;
+  }
+
+  20% {
+    background: none;
+  }
+
+  25% {
+    background: darken($color-primary, 20%);
+    transform: scaleY(1);
+  }
+
+  30% {
+    background: none;
+  }
+
+  35% {
+    background: darken($color-primary, 20%);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scaleY(1);
+    background: darken($color-primary, 20%);
+    opacity: 1;
+  }
+}
+
+@keyframes btn-flat-out {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes btn-flat-2-hover {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes btn-flat-2-out {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}

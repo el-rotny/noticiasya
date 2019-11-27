@@ -1,0 +1,10 @@
+/* ================ noticias ================ */
+@import './post-card';
+@import './post-common';
+@import './post-list';
+@import './post-single';
+@import './posts-featured';
+
+.screen-reader-text {
+  @extend .sr-only;
+}

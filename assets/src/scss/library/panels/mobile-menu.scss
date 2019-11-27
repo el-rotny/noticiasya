@@ -1,0 +1,224 @@
+
+.mobile-menu {
+  position: relative;
+  z-index: 99;
+  display: none;
+  color: $mobile-nav-text-color;
+
+  &-backdrop {
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: mix(transparent, $color-primary, 100%);
+
+    &.-dark {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &-box {
+    position: fixed;
+    z-index: 201;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    width: 100%;
+    height: 100vh;
+
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateZ(0);
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    -webkit-transform: translateZ(0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-perspective: 1000;
+
+    background-color: $mobile-nav-background-color;
+  }
+
+  &-main-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &-inner {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  &-container {
+    .admin-bar & {
+      margin-top: 46px;
+    }
+    // display: table-cell;
+    // vertical-align: top;
+    // padding: ($navbar-mobile-height+46px) 0 0 0;
+    background-color: $mobile-nav-background-color;
+    margin: auto;
+    // height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &-content {
+    height: 100%;
+  }
+
+  .dropdown > a,
+  .dropdown > a:hover,
+  .dropdown > a:focus {
+    border-color: transparent;
+    color: $mobile-nav-text-color;
+    // background-color: transparent;
+    text-decoration: none;
+  }
+
+  .panel {
+    $border: $gray-darkest;
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+    background-color: $mobile-nav-background-color;
+    // border-top: solid 1px $border;
+    // border-bottom: solid 1px $border;
+    &:last-child {
+      border-top: 0;
+      border-bottom: solid 2px $border;
+    }
+  }
+
+
+  &__content {
+    padding: $section-spacing-small;
+  }
+
+  .panel-heading {
+    padding: 0;
+    $border: $gray-darkest;
+
+    margin: 0;
+    font-size: $font-size-h6;
+    letter-spacing: $letter-spacing-h6;
+    line-height: $line-height-h6;
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    color: $headings-color;
+    text-transform: $headings-text-transform;
+
+    a {
+      color: white;
+      padding: $line-height-computed/2 40px;
+      display: block;
+      border-top: solid 1px $border;
+      background-color: $mobile-nav-background-color;
+
+      &:hover,
+      &.active,
+      &:focus {
+        color: $brand-primary;
+        text-decoration: none;
+        opacity: 0.8;
+      }
+    }
+
+    a[aria-expanded='true'] {
+      border-bottom: solid 1px darken($border, 7%);
+      border-top: solid 1px darken($border, 7%);
+      background-color: $gray-darkest;
+      // border-color: darken($border, 7%);
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .panel-title {
+    margin: 0;
+    font-size: $font-size-h6;
+    letter-spacing: $letter-spacing-h6;
+    line-height: $line-height-h6;
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    color: $headings-color;
+    text-transform: $headings-text-transform;
+
+    .icon {
+      height: 10px;
+      polygon {
+        fill: white;
+      }
+    }
+  }
+
+  .list-group-item {
+    $border: darken($gray-darkest, 7%);
+    padding-left: $gutter-site + ($line-height-computed);
+    background-color: $gray-darkest;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    a {
+      display: block;
+      border-top: solid 1px $border;
+      margin: 0;
+      padding: 15px 0;
+      font-size: $font-size-h6;
+      letter-spacing: $letter-spacing-h6;
+      line-height: $line-height-h6;
+      font-family: $headings-font-family;
+      font-weight: $headings-font-weight;
+      color: white;
+      text-transform: $headings-text-transform;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        opacity: 0.8;
+      }
+    }
+
+    &:first-of-type {
+      a {
+        border-top: 0;
+      }
+    }
+
+    &:last-of-type {
+      border-bottom: solid 1px lighten($border, 2%);
+
+      a {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .navbar-btn {
+    margin: 45px auto;
+    float: none;
+    display: block;
+    max-width: 320px;
+  }
+  *::selection {
+    background: rgba(0, 0, 0, 0.2);
+    color: $color-secondary;
+  }
+
+  *::-moz-selection {
+    background: $color-primary;
+    color: $color-secondary;
+  }
+}

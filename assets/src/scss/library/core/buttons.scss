@@ -1,0 +1,90 @@
+/* ================ Buttons ================ */
+.btn {
+  @include user-select();
+
+  @include prefix(appearance, none, webkit moz spec);
+
+  @include media-query($medium-up) {
+    padding: $input-padding-top-bottom $input-padding-left-right;
+  }
+
+  .icon-arrow-right,
+  .icon-arrow-left {
+    height: 9px;
+  }
+}
+
+// .btn.btn--secondary {
+//   border-color: $color-border;
+//   background-color: $color-small-button;
+//   color: $color-small-button-text;
+// }
+
+.btn.btn--smaller {
+  padding: 8px 10px;
+  font-size: em(12);
+  line-height: 1;
+  min-width: 0;
+}
+
+/* ================ Button variations ================ */
+
+@include media-query($small) {
+  .btn--small-wide {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+.btn--link {
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  color: $color-text;
+  text-align: left;
+
+  &:hover,
+  &:focus {
+    opacity: $opacity-link-hover;
+  }
+
+  .icon {
+    vertical-align: middle;
+  }
+}
+
+.btn--narrow {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.btn--disabled {
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+}
+
+.btn--has-icon-after {
+  .icon,
+  svg {
+    margin-left: 10px;
+
+    svg:not(.icon) {
+      // For native exported SVGs - lets take into accouunt the lineheight;
+      margin-bottom: -0.5em;
+    }
+  }
+}
+
+.btn--has-icon-before {
+  .icon,
+  svg {
+    margin-right: 10px;
+  }
+
+  svg:not(.icon) {
+    // For native exported SVGs - lets take into accouunt the lineheight;
+    margin-bottom: -0.25em;
+  }
+}

@@ -1,0 +1,323 @@
+// Transitions & Animations
+
+@mixin default-transitions {
+  transition: all 0.5s ease-in-out;
+}
+@mixin color-transitions {
+  transition: color 0.5s ease-in-out;
+}
+
+@mixin no-transitions {
+  transition: none;
+}
+
+@mixin fast-transitions {
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin slow-transitions {
+  transition: all 0.8s ease-in-out;
+}
+
+@mixin slower-transitions {
+  transition: all 1.2s ease-in-out;
+}
+
+@mixin slowest-transitions {
+  transition: all 1.7s ease-in-out;
+}
+
+@mixin turtle-transitions {
+  transition: all 3.7s ease-in-out;
+}
+
+@mixin zero-opacity {
+  opacity: 0;
+}
+
+@mixin full-opacity {
+  opacity: 1;
+}
+
+@mixin opacity-transition {
+  transition: opacity 0.5s ease-in-out;
+}
+
+@mixin margin-left-transition {
+  $transition-duration: 0.5s;
+  transition: margin-left $transition-duration;
+}
+
+@mixin width-transition {
+  $transition-duration: 0.5s;
+  transition: width $transition-duration;
+}
+
+@mixin margin-left-transition {
+  $transition-duration: 0.5s;
+  transition: margin-left $transition-duration;
+}
+
+// Centering in the UnKnown
+
+/* This parent can be any width and height */
+
+@mixin vertical-center() {
+  text-align: center;
+
+  /* May want to do this if there is risk the container may be narrower than the element inside */
+  white-space: nowrap;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+
+  & > :first-child {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+// Border Cols
+
+@mixin border-cols() {
+  max-width: none;
+
+  @media (min-width: $screen-xs-min) {
+    max-width: 320px;
+    margin: auto;
+    margin-bottom: $line-height-computed;
+    padding-top: $line-height-computed;
+    padding-bottom: $line-height-computed;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+  }
+
+  @media (min-width: $screen-sm-min) {
+    max-width: none;
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.45);
+  }
+
+  &:first-child {
+    border-top: 0;
+    border-left: 0;
+  }
+}
+
+//
+// Flexbox mixins
+//
+
+@mixin flexbox() {
+  display: flex;
+}
+
+@mixin flex($values) {
+  flex: $values;
+}
+
+@mixin order($val) {
+  order: $val;
+}
+
+@mixin make-flexible() {
+  overflow: visible;
+  height: auto;
+
+  &::before {
+    content: none;
+  }
+
+  .component-body {
+    position: relative;
+  }
+
+  .component-wrap {
+    position: relative;
+  }
+}
+
+//Aspect ratio for images
+
+@mixin aspect-ratio($ratio-or-width, $height: null) {
+  $padding: if(
+    $height,
+    percentage($height/$ratio-or-width),
+    percentage(1 / $ratio-or-width)
+  );
+
+  &:before {
+    content: '';
+    float: left;
+    padding-bottom: $padding;
+  }
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  // height: auto;
+
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin underlined-link {
+  display: inline-block;
+  margin-top: $line-height-computed/2;
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-decoration: underline;
+}
+
+@mixin transition-iterator($transitions...) {
+  $default: (
+    compact(
+      $default-transition-property $default-transition-duration
+      $default-transition-function $default-transition-delay
+    )
+  );
+  $transitions: if(
+    length($transitions) == 1 and type-of(nth($transitions, 1)) == list and
+    list-separator(nth($transitions, 1)) == comma,
+    nth($transitions, 1),
+    $transitions
+  );
+  $transitions: set-arglist-default($transitions, $default);
+
+  @include with-each-prefix(css-transitions, $transition-support-threshold) {
+    $delays: comma-list();
+    $transitions-without-delays: comma-list();
+    $transitions-with-delays: comma-list();
+    $has-delays: false;
+    // This block can be made considerably simpler at the point in time that
+    // we no longer need to deal with the differences in how delays are treated.
+
+    @each $transition in $transitions {
+      // Declare initial values for transition
+      $transition: transition-map($transition);
+      $property: map-get($transition, property);
+      $duration: map-get($transition, duration);
+      $timing-function: map-get($transition, timing-function);
+      $delay: map-get($transition, delay);
+      // Parse transition string to assign values into correct variables
+      $has-delays: $has-delays or $delay;
+
+      @if $current-prefix == -webkit {
+        // Keep a list of delays in case one is specified
+        $delays: append($delays, if($delay, $delay, 0s));
+        $transitions-without-delays: append(
+          $transitions-without-delays,
+          prefixed-for-transition($current-prefix, $property)
+          $duration
+          $timing-function
+        );
+      }
+
+ @else {
+        $transitions-with-delays: append(
+          $transitions-with-delays,
+          prefixed-for-transition($current-prefix, $property)
+          $duration
+          $timing-function
+          $delay
+        );
+      }
+    }
+
+    @if $current-prefix == -webkit {
+      @include prefix-prop(transition, $transitions-without-delays);
+
+      @if $has-delays {
+        @include prefix-prop(transition-delay, $delays);
+      }
+    }
+
+ @else if $current-prefix {
+      @include prefix-prop(transition, $transitions-with-delays);
+    }
+
+ @else {
+      transition: $transitions-with-delays;
+    }
+  }
+}
+
+$color-text-highlight: $brand-secondary;
+
+@mixin upperCaseLabel() {
+  color: $color-text-highlight;
+  font-size: $font-size-base;
+  font-weight: 900;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+@mixin bodyHeading() {
+  color: $headings-color;
+}
+
+@mixin bold() {
+  color: $color-text;
+  font-size: $font-size-h6;
+  letter-spacing: $letter-spacing-h6;
+  font-weight: 900;
+  margin: auto;
+}
+
+@mixin overlay-text() {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  p,
+  a {
+    color: $color-overlay-title-text;
+  }
+}
+
+
+@mixin containerize() {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: $gutter-site;
+  padding-right: $gutter-site;
+  @include clearfix;
+
+  @include media-query($small) {
+    padding-left: $gutter-site-mobile;
+    padding-right: $gutter-site-mobile;
+  }
+  @media (min-width: $screen-sm-min) {
+    max-width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    max-width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    max-width: $container-lg;
+  }
+  @media (min-width: $screen-xl-min) {
+    max-width: $container-xl;
+  }
+}

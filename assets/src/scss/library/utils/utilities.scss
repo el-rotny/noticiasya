@@ -1,0 +1,68 @@
+.group:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.group:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.flexify-equal-columns {
+  @media (min-width: $screen-md-min) {
+    display: flex !important;
+    flex-wrap: wrap;
+
+    &:before {
+      content: none;
+    }
+
+    > * {
+      //flex: 1;
+      //width: 0; // Force equal-width columns
+      display: flex;
+      flex-direction: column;
+      //margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.inverse {
+  $color-text: $white;
+  color: $color-text;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  p, {
+    color: $color-text;
+  }
+
+  .preview {
+    &-header,
+    &-title,
+    &-text {
+      color: $color-text;
+    }
+  }
+
+  .chevron .icon {
+    color: $color-text;
+  }
+
+  .scroller_text {
+    color: $color-text;
+    text-shadow: none;
+  }
+}
