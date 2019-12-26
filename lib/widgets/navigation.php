@@ -78,56 +78,10 @@ class Global_Navigation_Widget extends WP_Widget {
                   <!--/ Burger Icon END -->
                </div>
                <!-- Most Left Navbar -->
-               <ul class="navbar-transactional nav navbar-nav navbar-left navbar-nav small--hide">
-                  <li class="navbar-outlined">
-                     <a href="/account/login" class="navbar-nav-item">
-                        <!--?xml version="1.0" encoding="UTF-8"?-->
-                        <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                           <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
-                           <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-                              <g id="Component-/-Main-navigation" transform="translate(-1215.000000, -42.000000)" stroke="currentColor">
-                                 <g id="Main-Navigation">
-                                    <g id="Account-items" transform="translate(1215.000000, 22.000000)">
-                                       <g id="icon-account" transform="translate(0.500000, 20.500000)">
-                                          <path d="M13.0000008,12.4852966 C13.0004008,12.1590966 12.8411008,11.8524966 12.5740008,11.6652966 C10.7702008,10.4971966 8.64710075,9.9182966 6.50000075,10.0092966 C4.35290075,9.9182966 2.22980075,10.4971966 0.426000752,11.6652966 C0.158900752,11.8524966 -0.000399248489,12.1590966 7.51510862e-07,12.4852966 L0,15.0092966 L13.0000015,15.0092966 L13.0000008,12.4852966 Z" id="Stroke-1"></path>
-                                          <path d="M6.5,0 C8.4317,0 10,1.5683 10,3.5 C10,5.4317 8.4317,7 6.5,7 C4.5683,7 3,5.4317 3,3.5 C3,1.5683 4.5683,0 6.5,0 Z" id="Stroke-2"></path>
-                                       </g>
-                                    </g>
-                                 </g>
-                              </g>
-                           </g>
-                        </svg>
-                        <span class="mobile-nav-hidden">Login</span>
-                        <span class="icon__fallback-text">Log in</span>
-                     </a>
-                  </li>
 
-                  <li>
-                     <a href="/search" class="navbar-nav-item">
-                        <!-- Search -->
-                        <!--?xml version="1.0" encoding="UTF-8"?-->
-                        <svg width="15px" height="16px" viewBox="0 0 15 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                           <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5" stroke-linejoin="round">
-                              <g id="Component-/-Main-navigation" transform="translate(-1463.000000, -42.000000)" stroke="#000000">
-                                 <g id="Main-Navigation">
-                                    <g id="Account-items" transform="translate(1215.000000, 22.000000)">
-                                       <g id="icon-search" transform="translate(248.500000, 20.500000)">
-                                          <path d="M6,0 C9.3115,0 12,2.6885 12,6 C12,9.3115 9.3115,12 6,12 C2.6885,12 0,9.3115 0,6 C0,2.6885 2.6885,0 6,0 Z" id="Stroke-1" stroke-linecap="round"></path>
-                                          <path d="M13.758,14.758 L10,11" id="Stroke-2" stroke-linecap="square"></path>
-                                       </g>
-                                    </g>
-                                 </g>
-                              </g>
-                           </g>
-                        </svg>
-                        <span class="mobile-nav-hidden">Search</span>
-                        <!-- Search End -->
-                     </a>
-                  </li>
-               </ul>
                <ul class="navbar-transactional nav navbar-nav navbar-right navbar-nav small--hide">
                   <li>
-                      <a href="/search" class="navbar-nav-item btn navbar-btn">
+                      <a href="/" class="navbar-nav-item btn navbar-btn">
                         Mantente Informado Aqui
                       </a>
                   </li>
