@@ -8,12 +8,17 @@
 import 'gsap/CSSPlugin';
 import 'slick-carousel';
 import exampleModule from '../modules';
+import Page from './page';
+import mobileMenu from './mobileMenu';
+import joinRequest from './joinRequest';
 
 const App = {
   initialize() {
-    require('./page');
-    require('./mobileMenu');
+    const page = Page.initialize();
+    mobileMenu.initialize(page);
+    joinRequest.initialize(page);
     exampleModule.sayHello();
+    /* eslint-disable-next-line no-console */
     console.log('initialize, app.js');
   },
 };

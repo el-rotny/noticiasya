@@ -82,6 +82,7 @@
 		</section>
 	</footer>
   <?php $templates->get_template_part( 'template-parts/mobile-menu'); ?>
+  <?php $templates->get_template_part( 'template-parts/join-request'); ?>
 
 </div>
 

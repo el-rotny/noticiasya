@@ -1,8 +1,10 @@
 import TimelineLite from 'gsap/TimelineLite';
+import $ from 'jquery';
 
 const defaultVars = { paused: true, timeScale: 0.5 };
 
-const WSIZE = function (s) {
+/* eslint-disable no-unused-vars, no-undef */
+const WSIZE = (s) => {
   const sizes = {
     xs: 375,
     sm: 768,

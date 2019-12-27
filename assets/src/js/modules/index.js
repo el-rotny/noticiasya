@@ -1,7 +1,8 @@
 const exampleModule = {
-	sayHello: function() {
-		console.log( 'Say Hello!' );
-	}
+  sayHello() {
+    /* eslint-disable-next-line no-console */
+    console.log('Say Hello!');
+  },
 };
 
 module.exports = exampleModule;

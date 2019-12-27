@@ -1,4 +1,10 @@
-<?php ?>
+<?php
+/**
+ * Template part for Mobile Menu
+ *
+ *
+ */
+?>
 
 <div class="mobile-menu">
 	<div class="mobile-menu-backdrop -dark"></div>
@@ -229,7 +235,7 @@
 
 						</div>
 
-            <a href="/search" class="navbar-nav-item btn navbar-btn">
+            <a href="/search" class="navbar-nav-item btn navbar-btn join-request-open">
               Mantente Informado Aqui
             </a>
 

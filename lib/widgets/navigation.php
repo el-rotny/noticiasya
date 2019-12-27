@@ -81,7 +81,7 @@ class Global_Navigation_Widget extends WP_Widget {
 
                <ul class="navbar-transactional nav navbar-nav navbar-right navbar-nav small--hide">
                   <li>
-                      <a href="/" class="navbar-nav-item btn navbar-btn">
+                      <a href="/" class="navbar-nav-item btn navbar-btn join-request-open">
                         Mantente Informado Aqui
                       </a>
                   </li>
