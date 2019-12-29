@@ -56,7 +56,6 @@ var JoinRequest = {
 
     // == join MODAL ==/
     page.joinOpen = function (darkDrop) {
-      console.log('open');
       var join = (0, _jquery["default"])('.join-request');
 
       if (darkDrop) {
@@ -73,7 +72,6 @@ var JoinRequest = {
     };
 
     page.joinClose = function () {
-      console.log('close');
       var join = (0, _jquery["default"])('.join-request');
       var tl = transitions.join.close(join);
       tl.add(function () {
@@ -96,13 +94,11 @@ var JoinRequest = {
     (0, _jquery["default"])(document).on('click', '.join-request-close', function (e) {
       e.preventDefault();
       page.joinClose();
-      console.log('event close');
       return false;
     });
     (0, _jquery["default"])(document).on('click', '.join-request-backdrop', function (e) {
       e.preventDefault();
       page.joinClose();
-      console.log('event backdrop close');
       return false;
     }); // $(document).on('click', '.navbar-nav-item', (e) => {
     //   e.preventDefault();

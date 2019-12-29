@@ -8,6 +8,7 @@
 
 require_once __DIR__ . '/lib/init.php';
 require_once __DIR__ . '/lib/custom-templates.php';
+require_once __DIR__ . '/lib/custom-fields.php';
 require_once __DIR__ . '/lib/scripts.php';
 require_once __DIR__ . '/lib/modules.php';
 require_once __DIR__ . '/lib/widgets.php';

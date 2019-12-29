@@ -3,7 +3,7 @@
 require_once __DIR__ . '/widgets/navigation.php';
 require_once __DIR__ . '/widgets/category-posts/cat-posts.php';
 require_once __DIR__ . '/widgets/recent-posts-widget/rpwe.php';
-
+require_once __DIR__ . '/widgets/simple-social-icons/simple-social-icons.php';
 
 // Add some text after the header
 add_action( '__before_home_content' , 'add_promotional_text' );

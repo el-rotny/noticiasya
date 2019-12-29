@@ -18,7 +18,10 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		/* Set up the widget options. */
 		$widget_options = array(
 			'classname'   => 'recent-posts-widget post-list-container',
-			'description' => __( 'An advanced widget that gives you total control over the output of your site’s most recent Posts.', 'recent-posts-widget-extended' ),
+			'description' => __(
+				'Recent posts for Entravision',
+				'recent-posts-widget-extended'
+			),
 			'customize_selective_refresh' => true
 		);
 
@@ -30,7 +33,7 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		/* Create the widget. */
 		parent::__construct(
 			'rpwe_widget',                                            // $this->id_base
-			__( 'Recent Posts Extended', 'recent-posts-widget' ), 	 // $this->name
+			__( 'Entravision Recent Posts', 'recent-posts-widget' ), 	 // $this->name
 			$widget_options,                                        // $this->widget_options
 			$control_options                                       // $this->control_options
 		);

@@ -1,8 +1,17 @@
 .form, form {
   $color-text: #000000;
-  &-group, &-submit {
+
+  &-group {
+    margin:0px 0;
+    + .form-group {
+      margin:18px 0;
+    }
+  }
+
+  &-submit {
     margin:18px 0;
   }
+
 
   &-input, input:not([type='submit']) {
     width:100%;
@@ -15,11 +24,11 @@
     background-color: transparent;
 
     font-family:$font-family-base;
-    font-size:18px;
+    font-size:14px;
     font-weight:normal;
     letter-spacing:0.6px;
 
-    color:$color-text;
+    color:#000000;
 
     transition:all 0.2s;
 
@@ -28,8 +37,11 @@
     }
 
     &:focus, &:active {
-      border-color:$contacts-color-primary;
+      border-color:#ffffff;
       outline:none;
+    }
+    &::-webkit-input-placeholder {
+      color:#000000;
     }
 
   }

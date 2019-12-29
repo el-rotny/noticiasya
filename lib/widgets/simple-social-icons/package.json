@@ -1,0 +1,15 @@
+{
+  "name": "simple-social-icons",
+  "main_plugin_file": "simple-social-icons",
+  "description": "Development files for the Simple Social Icons plugin.",
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "plugin": {
+    "name": "Simple Social Icons",
+    "description": "A simple, CSS and icon font driven social icons widget.",
+    "textdomain": "simple-social-icons"
+  }
+}

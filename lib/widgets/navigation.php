@@ -16,7 +16,7 @@ class Global_Navigation_Widget extends WP_Widget {
 
         parent::__construct(
             'global_navigation_widget', // Base ID
-            __( 'NY Global Navigation'), // Name
+            __( 'Entravision Global Navigation'), // Name
             $widget_ops // args
         );
     }

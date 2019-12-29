@@ -9,7 +9,6 @@ const JoinRequest = {
   initialize(page) {
     // == join MODAL ==/
     page.joinOpen = (darkDrop) => {
-      console.log('open');
       const join = $('.join-request');
 
       if (darkDrop) {
@@ -27,7 +26,6 @@ const JoinRequest = {
     };
 
     page.joinClose = () => {
-      console.log('close');
       const join = $('.join-request');
       const tl = transitions.join.close(join);
       tl.add(() => {
@@ -53,14 +51,12 @@ const JoinRequest = {
     $(document).on('click', '.join-request-close', (e) => {
       e.preventDefault();
       page.joinClose();
-      console.log('event close');
       return false;
     });
 
     $(document).on('click', '.join-request-backdrop', (e) => {
       e.preventDefault();
       page.joinClose();
-      console.log('event backdrop close');
       return false;
     });
 
