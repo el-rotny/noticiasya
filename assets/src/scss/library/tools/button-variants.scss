@@ -11,10 +11,27 @@
   $disabled-border: $disabled-bg,
   $transition: 0.2s
 ) {
-  border-color: $border-color;
+
   background-color: $background-color;
   color: $text-color;
   border-width: $border-width;
+
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  vertical-align: middle;
+  padding: $button-y-padding $button-x-padding;
+  font-size: 14px;
+  min-width: 260px;
+  line-height: 1.2em;
+  border: 1.5px $border-color solid;
+  font-family: $buttons_font_family;
+  font-weight: $buttons_font_weight;
+  letter-spacing: $buttons_letter_spacing;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: $button-border-radius;
+
   // transition: color linear .2s, background-color linear .2s;
 
   &:after {

@@ -2,7 +2,7 @@
 /* ================================ */
 
 $body-bg: $color-body;
-$link-color: $brand-primary;
+$link-color: darken($brand-primary, 10);
 $link-hover-color: lighten($link-color, 15);
 $link-hover-decoration: underline;
 

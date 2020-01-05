@@ -1,0 +1,106 @@
+/*============================================================================
+  Slick Slider 1.6.0
+  - If upgrading Slick's styles, use the following variables/functions
+    instead of the slick defaults (from slick-theme.scss)
+  - This file includes default slick.scss styles (at Slick Slider SCSS)
+    and slick-theme.scss (at Slick Slider Theme). Upgrade each area individually.
+  - Remove `outline: none` from `.slick-dots li button`
+==============================================================================*/
+$slick-font-family: 'slick-icons, sans-serif';
+$slick-arrow-color: $color-slideshow-arrows !default;
+$slick-dot-color: $color-slideshow-dots !default;
+$slick-dot-color-active: $slick-dot-color !default !default;
+$slick-prev-character: '\2190' !default;
+$slick-next-character: '\2192' !default;
+$slick-dot-character: '\2022' !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+
+/*============================================================================
+  Slick slider overrides
+==============================================================================*/
+$slick-dot-size: 12px;
+$slick-dot-size-small: 10px;
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+
+
+/*================ Slick dots and prev/next pagination ================*/
+.slick-slide {
+  position: relative;
+  // > div {
+  //   height: 100%;
+  // }
+}
+
+.slick-slide img {
+    border: 5px solid #fff;
+    display: block;
+    // width: 100%;
+}
+
+// .slick-slider .slick-dots {
+//   margin: 0;
+//   width: auto;
+//
+//   li {
+//     // sass-lint:disable SelectorDepth
+//     margin: 0;
+//     vertical-align: middle;
+//     width: $slick-dot-size-small;
+//     height: $slick-dot-size-small;
+//     margin-left: 6px;
+//
+//     &:first-of-type {
+//       margin-left: 0;
+//     }
+//
+//     @include media-query($medium-up) {
+//       width: $slick-dot-size;
+//       height: $slick-dot-size;
+//       margin-left: 8px;
+//     }
+//
+//     button {
+//       position: relative;
+//       padding: 0;
+//       width: $slick-dot-size-small;
+//       height: $slick-dot-size-small;
+//
+//       @include media-query($medium-up) {
+//         width: $slick-dot-size;
+//         height: $slick-dot-size;
+//       }
+//     }
+//
+//     button::before {
+//       text-indent: -9999px;
+//       background-color: transparent;
+//       border-radius: 100%;
+//       background-color: currentColor;
+//       width: $slick-dot-size-small;
+//       height: $slick-dot-size-small;
+//       opacity: 0.4;
+//       transition: all 0.2s;
+//
+//       @include media-query($medium-up) {
+//         width: $slick-dot-size;
+//         height: $slick-dot-size;
+//       }
+//     }
+//
+//     &.slick-active button::before {
+//       opacity: 1;
+//     }
+//
+//     button:active::before {
+//       opacity: 0.7;
+//     }
+//   }
+// }

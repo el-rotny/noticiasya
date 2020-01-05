@@ -133,23 +133,14 @@ input.btn {
 
 .btn,
 .btn {
-  position: relative;
-  z-index: 0;
-  display: inline-block;
-  vertical-align: middle;
-  padding: $button-y-padding $button-x-padding;
-  font-size: 14px;
-  min-width: 260px;
-  line-height: 1.2em;
-  border: 1.5px $color-primary solid;
-  font-family: $buttons_font_family;
-  font-weight: $buttons_font_weight;
-  letter-spacing: $buttons_letter_spacing;
-  text-transform: uppercase;
-  text-align: center;
-  border-color: $color-primary;
-  color: white;
-  border-radius: $button-border-radius;
+  @include button-variant(
+    $border-color: $color-primary,
+    $background-color: $color-primary,
+    $text-color: white,
+    $hover-text-color: white,
+    $hover-background: $color-primary,
+    $name: 'btn'
+  );
 
   .input-group & {
     min-width: 130px;

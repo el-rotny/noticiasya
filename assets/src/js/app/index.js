@@ -6,7 +6,6 @@
 // Application bootstrapper.
 // Vendor
 import 'gsap/CSSPlugin';
-import 'slick-carousel';
 import exampleModule from '../modules';
 import Page from './page';
 import mobileMenu from './mobileMenu';

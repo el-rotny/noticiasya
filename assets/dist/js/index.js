@@ -3,8 +3,6 @@
 
 require("gsap/CSSPlugin");
 
-require("slick-carousel");
-
 var _modules = _interopRequireDefault(require("../modules"));
 
 var _page = _interopRequireDefault(require("./page"));
@@ -37,7 +35,7 @@ var App = {
 };
 module.exports = App;
 
-},{"../modules":7,"./joinRequest":2,"./mobileMenu":3,"./page":4,"gsap/CSSPlugin":11,"slick-carousel":23}],2:[function(require,module,exports){
+},{"../modules":7,"./joinRequest":2,"./mobileMenu":3,"./page":4,"gsap/CSSPlugin":11}],2:[function(require,module,exports){
 "use strict";
 
 var _jquery = _interopRequireDefault(require("jquery"));
@@ -264,6 +262,8 @@ var _TweenLite = _interopRequireDefault(require("gsap/TweenLite"));
 var _jquery = _interopRequireDefault(require("jquery"));
 
 var _wowjs = _interopRequireDefault(require("wowjs"));
+
+require("slick-carousel");
 
 var _mobileDetect = _interopRequireDefault(require("mobile-detect"));
 
@@ -513,7 +513,7 @@ var Page = {
     // const faRightIcon = fontawesome.icon(faChevronRight).html
 
 
-    page.heroSlickConfig = {
+    page.gallerySlickConfig = {
       // normal options...
       infinite: false,
       slidesToShow: 1,
@@ -537,11 +537,11 @@ var Page = {
     };
     (0, _jquery["default"])(document).ready(function () {
       setTimeout(function () {
-        page.heroSlider = (0, _jquery["default"])('.hero-slick');
-        page.heroSlider.slick(page.heroSlickConfig);
+        page.gallerySlider = (0, _jquery["default"])('.gallery-slider');
+        page.gallerySlider.slick(page.gallerySlickConfig);
       }, 0);
     });
-    (0, _jquery["default"])('.hero-slick').on('init', function (event, slick, direction) {
+    (0, _jquery["default"])('.gallery-slider').on('init', function (event, slick, direction) {
       // eslint-disable-next-line no-console
       console.log(event, slick, direction);
     });
@@ -553,6 +553,12 @@ var Page = {
         mobile: false,
         live: false
       }).init();
+    });
+    (0, _jquery["default"])('#comments').on('show.bs.collapse', function () {
+      (0, _jquery["default"])('#comments__toggle').toggle();
+    });
+    (0, _jquery["default"])('#comments').on('hide.bs.collapse', function () {
+      (0, _jquery["default"])('#comments__toggle').toggle();
     }); // Update handler
 
     page.update = function () {
@@ -566,7 +572,7 @@ var Page = {
 };
 module.exports = Page;
 
-},{"fastclick":10,"gsap/TweenLite":13,"jquery":14,"mobile-detect":22,"ua-parser-js":24,"wowjs":25}],5:[function(require,module,exports){
+},{"fastclick":10,"gsap/TweenLite":13,"jquery":14,"mobile-detect":22,"slick-carousel":23,"ua-parser-js":24,"wowjs":25}],5:[function(require,module,exports){
 "use strict";
 
 var _TimelineLite = _interopRequireDefault(require("gsap/TimelineLite"));

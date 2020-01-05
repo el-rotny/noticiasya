@@ -18,8 +18,7 @@ $display_excerpt = isset($data->display_excerpt) ? $data->display_excerpt : true
 $display_date = isset($data->display_date) ? $data->display_date : true;
 ?>
 
-CONTENT VIDEO
-<article id="post-<?php the_ID(); ?>" <?php post_class( $prefix_class ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $prefix_class .' '. $prefix_class.'--video' ); ?>>
 	<div class="<?php echo $prefix_class . '__tags' ?> entry-tags">
 		<?php get_primary_category(); ?>
 		<?php get_entry_tags() ?>

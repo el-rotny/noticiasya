@@ -4,7 +4,8 @@
 @import './post-list';
 @import './post-single';
 @import './posts-featured';
-
+@import './image-gallery';
+@import './comment-area';
 .screen-reader-text {
   @extend .sr-only;
 }

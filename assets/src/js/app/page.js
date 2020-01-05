@@ -2,6 +2,7 @@
 import TweenLite from 'gsap/TweenLite';
 import $ from 'jquery';
 import wow from 'wowjs';
+import 'slick-carousel';
 
 /* Detect our user agent the
  * Uses req for express and window headers for webdev
@@ -246,7 +247,7 @@ const Page = {
     // const faChevronRight = require('@fortawesome/fontawesome-free-solid/faChevronRight')
     // const faRightIcon = fontawesome.icon(faChevronRight).html
 
-    page.heroSlickConfig = {
+    page.gallerySlickConfig = {
 
       // normal options...
       infinite: false,
@@ -272,13 +273,13 @@ const Page = {
 
     $(document).ready(() => {
       setTimeout(() => {
-        page.heroSlider = $('.hero-slick');
-        page.heroSlider.slick(page.heroSlickConfig);
+        page.gallerySlider = $('.gallery-slider');
+        page.gallerySlider.slick(page.gallerySlickConfig);
       }, 0);
     });
 
 
-    $('.hero-slick').on('init', (event, slick, direction) => {
+    $('.gallery-slider').on('init', (event, slick, direction) => {
     // eslint-disable-next-line no-console
       console.log(event, slick, direction);
     });
@@ -294,6 +295,13 @@ const Page = {
       }).init();
     });
 
+    $('#comments').on('show.bs.collapse', () => {
+      $('#comments__toggle').toggle();
+    });
+
+    $('#comments').on('hide.bs.collapse', () => {
+      $('#comments__toggle').toggle();
+    });
     // Update handler
     page.update = () => {
       if (!page.browser.touch) {

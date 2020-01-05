@@ -28,7 +28,7 @@ $templates = new NoticiasYa_Template_Loader;
 						get_post_format()
 					);
 
-					the_post_navigation();
+					// the_post_navigation();
 
 					// If comments are open or we have at least one comment, load up the comment template.
 
@@ -37,15 +37,19 @@ $templates = new NoticiasYa_Template_Loader;
 						comments_template();
 					endif;
 
+
 				endwhile; // End of the loop.
 				?>
 
 				</main><!-- #main -->
+				<div class="post-single__after-content">
+					<?php dynamic_sidebar( 'single-post__after-content' ); ?>
+				</div>
 			</div><!-- #primary -->
 
 			<div class="grid__item small--full large-up--one-quarter">
 				<?php get_sidebar_template(); ?>
-			<div>><!-- #aside -->
+			<div><!-- #aside -->
 		</div>
 	</div>
 

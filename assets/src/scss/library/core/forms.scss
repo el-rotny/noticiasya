@@ -112,6 +112,16 @@ select {
     cursor: default !important;
   }
 }
+input.button, input[type='submit'] {
+  @include button-variant(
+    $border-color: $color-primary,
+    $background-color: $color-primary,
+    $text-color: white,
+    $hover-text-color: white,
+    $hover-background: $color-primary,
+    $name: 'btn'
+  );
+}
 
 button,
 input[type='submit'],

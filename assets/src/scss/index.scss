@@ -13,6 +13,16 @@
 // Includes libraries like bootstrap, slick, sweetalert2, etc
 @import './static/index';
 
+// Slick carousel
+$slick-font-path: '../fonts/slick/';
+$slick-loader-path: '../images/slick/';
+
+// @import '~slick-carousel/slick/slick';
+// @import '~slick-carousel/slick/slick-theme';
+
+
+@import './static/slick';
+
 // normalize
 @import './library/core/normalize';
 
@@ -41,12 +51,7 @@
 @import './library/utils/ratio-containers';
 
 /* ================ Core ================ */
-@import './library/core/animation-classes';
-@import './library/core/grid';
-@import './library/core/responsive-images';
-@import './library/core/buttons';
-@import './library/core/forms';
-
+@import './library/core/index';
 @import './library/grid';
 @import './library/columns';
 
@@ -71,6 +76,7 @@
 @import './library/components/panel';
 @import './library/components/backgroundSection';
 @import './library/components/spinner';
+@import './library/components/icons';
 
 @import './library/form';
 
@@ -84,6 +90,7 @@
 
 // Addons
 @import './library/vendors/bootstrap-addons';
+
 
 /* ================ noticias ================ */
 @import './noticias/index';

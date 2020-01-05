@@ -445,11 +445,26 @@ $color-card-bg-inverse: $gray-base;
     }
   }
 
+
   .bottom-line-container {
     text-align: left;
   }
 
   .bottomLine {
     display: inline-block;
+  }
+  .twitter-tweet {
+    // width: 100% !important;
+  }
+}
+
+.post-single__after-content {
+  padding-top: 1em;
+  > .widget {
+    margin-top: 1em;
+  }
+  .widget_entravision_plugins_widget_civic_science {
+    background-color: #F3F3F3;
+    padding: 2em;
   }
 }
