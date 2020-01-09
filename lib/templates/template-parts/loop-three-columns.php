@@ -1,7 +1,7 @@
 <?php
 
 
-$grid_class="post-list post-grid grid--double-gutters";
+$grid_class="post-list post-grid grid";
 ?>
 
 <div class="<?php echo $grid_class ?>">

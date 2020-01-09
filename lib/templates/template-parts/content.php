@@ -13,7 +13,8 @@ $templates = new NoticiasYa_Template_Loader;
 
 $prefix_class = is_singular() ? 'post-single' : 'post-card';
 $display_thumb = isset($data->display_thumb) ? $data->display_thumb : true;
-$display_byline = isset($data->display_byline) ? $data->display_byline : true;
+$display_by_line = isset($data->display_by_line) ? $data->display_by_line : true;
+$display_author = isset($data->display_author) ? $data->display_author : true;
 $display_excerpt = isset($data->display_excerpt) ? $data->display_excerpt : true;
 $display_date = isset($data->display_date) ? $data->display_date : true;
 ?>
@@ -30,24 +31,9 @@ $display_date = isset($data->display_date) ? $data->display_date : true;
 	 </div>
 	<?php endif; ?>
 
-	<header class="entry-header <?php echo $prefix_class . '__title' ?>">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="h6 post-single__heading entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="h6 post-card__heading entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+	<?php get_content_header($prefix_class); ?>
 
-		if ( 'post' === get_post_type() && ($display_date || $display_byline) ) :
-			?>
-			<div class="entry-meta <?php echo $prefix_class . '__meta' ?>">
-
-				<?php if( $display_date ){ get_posted_on(); }?>
-				<?php if( $display_byline ){ get_posted_by(); }?>
-
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+	<?php get_byline($display_date, $display_by_line, $display_author, $prefix_class); ?>
 
 	<?php if( $display_excerpt ): ?>
 	<div class="entry-content <?php echo $prefix_class . '__body' ?>">

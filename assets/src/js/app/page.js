@@ -54,6 +54,7 @@ const Page = {
       page.body.addClass(slugify(browser.name));
     }
 
+
     /* Check if ApplePay is avialable */
     if (window.ApplePaySession) {
     // The Apple Pay JS API is available.
@@ -113,6 +114,16 @@ const Page = {
         }, false);
       }
     }
+
+    // Hide all images that error out;
+    document.querySelectorAll('img').forEach((img) => {
+      // eslint-disable-next-line no-param-reassign
+      img.onerror = () => {
+        // eslint-disable-next-line no-param-reassign
+        img.style.display = 'none';
+      };
+    });
+
 
     // Navbar
     page.navbar = $('#mainNav');

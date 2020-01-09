@@ -121,6 +121,13 @@ add_action('after_setup_theme', function () {
     // add_editor_style(asset_path('styles/main.css'));
 
 		add_theme_support( 'post-formats', array( 'video', 'gallery', 'audio' ) );
+
+		/**
+		 * Add Pageviews theme support
+		 * @link https://pressjitsu.com/blog/pageviews-wordpress-plugin/
+		 */
+		add_theme_support( 'pageviews' ); // disable default behavior
+
 }, 20);
 
 // Disable Gutenberg if Installed
@@ -137,3 +144,16 @@ function wpse_plugin_comment_template( $comment_template ) {
 }
 // throw this into your plugin or your functions.php file to define the custom comments template.
 add_filter( "comments_template", "wpse_plugin_comment_template" );
+
+
+// This is your function, you can name it anything you want
+function entravision_pageviews_widget($args) {
+	/* Define Templates */
+	$templates = new NoticiasYa_Template_Loader;
+	?>
+	<?php
+		$templates->get_template_part( 'template-parts/content', 'popular-widget' );
+	?>
+<?php }
+
+add_action( 'pageviews_widget', 'entravision_pageviews_widget', 999 );

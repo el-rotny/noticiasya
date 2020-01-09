@@ -13,7 +13,7 @@ get_header_template();
 $templates = new NoticiasYa_Template_Loader;
 ?>
 	<div class="container">
-		<div class="grid grid--double-gutters">
+		<div class="grid ">
 			<div id="primary" class="content-area grid__item small--full large-up--three-quarters">
 				<main id="main" class="site-main">
 
@@ -21,6 +21,9 @@ $templates = new NoticiasYa_Template_Loader;
 
 				while ( have_posts() ) :
 					the_post();
+
+					// Popular Posts counter
+					wpb_set_post_views(get_the_ID());
 
 					$templates->get_template_part(
 						'template-parts/content',
@@ -49,7 +52,33 @@ $templates = new NoticiasYa_Template_Loader;
 
 			<div class="grid__item small--full large-up--one-quarter">
 				<?php get_sidebar_template(); ?>
-			<div><!-- #aside -->
+			</div><!-- #aside -->
+		</div>
+
+		<?php #do_action( 'pageviews' ); ?>
+		<div class="post-single__widgets">
+			<div class="grid">
+				<div class="grid__item small--full large-up--three-quarters">
+					some content
+				</div>
+				<div class="grid__item small--full large-up--one-quarter">
+					<?php
+					the_widget( 'Pageviews_Widget',
+						$instance = array(
+							'title' => 'Las Más Leídas',
+							'limit' => 5,
+						),
+						$args = array(
+							'before_widget' => '',
+							'after_widget' => '',
+							'before_title' => '<h4>',
+							'after_title' => '</h4>',
+							'widget_id' => '',
+						)
+					);
+					?>
+				</div>
+			</div>
 		</div>
 	</div>
 

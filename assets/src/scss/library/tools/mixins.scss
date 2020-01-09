@@ -265,10 +265,6 @@ $color-text-highlight: $brand-secondary;
   text-transform: uppercase;
 }
 
-@mixin bodyHeading() {
-  color: $headings-color;
-}
-
 @mixin bold() {
   color: $color-text;
   font-size: $font-size-h6;

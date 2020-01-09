@@ -104,25 +104,25 @@ $color-card-bg-inverse: $gray-base;
     color: $color-text;
   }
 
+  .author {
+    font-size: $font-size-xsmall;
+    text-transform: uppercase;
+    font-weight: bold;
+    a {
+      color: $number-label-color;
+    }
+  }
+
   #{$root}__title {
     max-width: 100%;
     margin: $line-height-computed auto;
-    @include bodyHeading();
+    color: $headings-color;
     margin-bottom: 0;
     padding-left: 0;
     padding-right: 0;
 
     a {
       color: $color-text-dark;
-    }
-
-    .author {
-      font-size: $font-size-xsmall;
-      text-transform: uppercase;
-      font-weight: bold;
-      a {
-        color: $number-label-color;
-      }
     }
 
     h6,
@@ -286,8 +286,8 @@ $color-card-bg-inverse: $gray-base;
   }
 
   &__body {
-    display: table;
-    width: 100%;
+    // display: table;
+    // width: 100%;
 
     &__inner {
       display: table-cell;
@@ -423,6 +423,26 @@ $color-card-bg-inverse: $gray-base;
     }
   }
 
+  &--popular-posts {
+    @include media-query($medium-up){
+      margin-bottom: 1em;
+    }
+    .header, h2, .h6 {
+      margin-top: 0;
+
+    }
+    .post-card__title {
+      @include media-query($medium-up){
+        margin-top: 0;
+      }
+      .h6 {
+        @include media-query($large-up){
+          font-size: 12px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
   .bottom-line-container {
     text-align: left;
   }

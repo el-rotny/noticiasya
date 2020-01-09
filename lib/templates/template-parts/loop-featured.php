@@ -42,6 +42,7 @@ while ( $data->have_posts() ) : $data->the_post();
     'display_by_line' => $data->current_post > 0 ? false : true,
     'display_excerpt' => false,
     'display_date' => false,
+    'display_author' => false,
     'display_byline' => $data->current_post > 1 ? false : true,
   ));
 
@@ -73,7 +74,7 @@ while ( $data->have_posts() ) : $data->the_post();
 endwhile;
 ?>
 
-<div class="posts-featured post-grid grid grid--double-gutters">
+<div class="posts-featured post-grid grid ">
   <div class="grid__item small--full large-up--two-thirds posts-featured--large">
     <?php echo $featured; ?>
   </div>
@@ -81,6 +82,6 @@ endwhile;
     <?php echo $sub_featured; ?>
   </div>
 </div>
-<div class="post-list post-grid grid--double-gutters">
+<div class="post-list post-grid grid">
   <?php echo $rest; ?>
 </div>

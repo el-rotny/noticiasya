@@ -14,7 +14,7 @@ get_header_template();
 $templates = new NoticiasYa_Template_Loader;
 ?>
 	<div class="container">
-		<div class="grid grid--double-gutters">
+		<div class="grid ">
 			<div id="primary" class="content-area grid__item small--full large-up--three-quarters">
 				<main id="main" class="site-main">
 

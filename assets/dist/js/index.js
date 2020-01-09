@@ -378,8 +378,16 @@ var Page = {
           FastClick.attach(document.body);
         }, false);
       }
-    } // Navbar
+    } // Hide all images that error out;
 
+
+    document.querySelectorAll('img').forEach(function (img) {
+      // eslint-disable-next-line no-param-reassign
+      img.onerror = function () {
+        // eslint-disable-next-line no-param-reassign
+        img.style.display = 'none';
+      };
+    }); // Navbar
 
     page.navbar = (0, _jquery["default"])('#mainNav');
     page.brandNavbar = (0, _jquery["default"])('#brandNav');
