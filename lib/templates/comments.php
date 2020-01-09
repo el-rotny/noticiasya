@@ -20,9 +20,9 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="accordion" role="tablist" aria-multiselectable="true">
+<div id="comments" role="tablist" aria-multiselectable="true">
 	<div class="comments-heading" role="tab" id="headingOne">
-		<a data-toggle="collapse" data-parent="#accordion" href="#comments" aria-expanded="true" aria-controls="comments">
+		<a data-toggle="collapse" data-parent="#comments" href="#comment-cotnent" aria-expanded="true" aria-controls="#comment-cotnent">
 
 			<h2 class="comments-title">
 				<?php
@@ -30,13 +30,13 @@ if ( post_password_required() ) {
 				// if ( '1' === $comment_count ) {
 				// 	printf(
 				// 		/* translators: 1: title. */
-				// 		esc_html__( 'One thought on &ldquo;%1$s&rdquo;', '_s' ),
+				// 		esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'NoticiasYa' ),
 				// 		'<span>' . get_the_title() . '</span>'
 				// 	);
 				// } else {
 				// 	printf( // WPCS: XSS OK.
 				// 		/* translators: 1: comment count number, 2: title. */
-				// 		esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', '_s' ) ),
+				// 		esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'NoticiasYa' ) ),
 				// 		number_format_i18n( $comment_count ),
 				// 		'<span>' . get_the_title() . '</span>'
 				// 	);
@@ -46,7 +46,7 @@ if ( post_password_required() ) {
 			</h2><!-- .comments-title -->
 		</a>
 	</div>
-	<div id="comments" class="comments-area collapse" role="tabpanel" aria-labelledby="headingOne">
+	<div id="comment-cotnent" class="comments-area collapse" role="tabpanel" aria-labelledby="headingOne">
 		<?php #$comment_count = get_comments_number(); echo $comment_count;
 		?>
 
@@ -73,7 +73,7 @@ if ( post_password_required() ) {
 			// If comments are closed and there are comments, let's leave a little note, shall we?
 			if ( ! comments_open() ) :
 				?>
-				<p class="no-comments"><?php esc_html_e( 'Comments are closed.', '_s' ); ?></p>
+				<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'NoticiasYa' ); ?></p>
 				<?php
 			endif;
 

@@ -1,9 +1,8 @@
 <?php
 
 require_once  plugin_dir_path( __DIR__ ) . '/lib/modules/mobble/mobble.php';
-require_once  plugin_dir_path( __DIR__ ) . '/lib/modules/popular-posts/index.php';
 require_once  plugin_dir_path(__DIR__) . '/lib/modules/pageviews/pageviews.php';
-require_once  plugin_dir_path(__DIR__) . '/lib/modules/pageviews-widget.php';
+require_once  plugin_dir_path(__DIR__) . '/lib/modules/popular-post-widget.php';
 
 // Define path and URL to the ACF plugin.
 define( 'NOTICIAS_ACF_PATH', plugin_dir_path( __DIR__ ) . '/lib/modules/acf/' );

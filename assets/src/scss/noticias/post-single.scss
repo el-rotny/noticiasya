@@ -13,6 +13,8 @@ $color-card-bg-inverse: $gray-base;
 // .post-category + .post-tags {
 //   margin-left: $line-height-computed/2;
 // }
+//
+
 .post-single {
   // Hoist
 
@@ -98,6 +100,21 @@ $color-card-bg-inverse: $gray-base;
     color: $color-text;
   }
 
+  #{$root}__comment-link {
+    a {
+      font-family: $headings-font-family;
+      font-size: 20px;
+      color: #000000;
+      letter-spacing: 0;
+
+      float: right;
+      display: block;
+      background-image: url('../images/comment-icon.png');
+      background-repeat: no-repeat;
+      padding-right: 1.5em;
+      background-position: center right;
+    }
+  }
   #{$root}__title {
     max-width: 100%;
     margin: $line-height-computed auto;
@@ -175,9 +192,7 @@ $color-card-bg-inverse: $gray-base;
       margin-right: $section-spacing-small;
     }
   }
-  .entry-title {
 
-  }
   p {
     @include media-query($medium-up){
       margin-left: $section-spacing-small * 2;

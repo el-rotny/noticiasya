@@ -11,12 +11,16 @@
 /* Define Templates */
 $templates = new NoticiasYa_Template_Loader;
 
-$prefix_class = is_singular() ? 'post-single' : 'post-card';
+
 $display_thumb = isset($data->display_thumb) ? $data->display_thumb : true;
 $display_by_line = isset($data->display_by_line) ? $data->display_by_line : true;
 $display_author = isset($data->display_author) ? $data->display_author : true;
 $display_excerpt = isset($data->display_excerpt) ? $data->display_excerpt : true;
 $display_date = isset($data->display_date) ? $data->display_date : true;
+$is_loop = isset($data->is_loop) ? $data->is_loop : true;
+
+$prefix_class = (is_singular() && !$data->is_loop) ? 'post-single' : 'post-card';
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $prefix_class ); ?>>
@@ -31,9 +35,9 @@ $display_date = isset($data->display_date) ? $data->display_date : true;
 	 </div>
 	<?php endif; ?>
 
-	<?php get_content_header($prefix_class); ?>
+	<?php get_content_header($prefix_class, $is_loop); ?>
 
-	<?php get_byline($display_date, $display_by_line, $display_author, $prefix_class); ?>
+	<?php get_byline($display_date, $display_by_line, $display_author, $prefix_class, $is_loop); ?>
 
 	<?php if( $display_excerpt ): ?>
 	<div class="entry-content <?php echo $prefix_class . '__body' ?>">

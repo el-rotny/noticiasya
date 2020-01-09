@@ -22,7 +22,7 @@ $templates = new NoticiasYa_Template_Loader;
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'NoticiasYa' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->

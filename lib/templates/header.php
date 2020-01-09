@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site custom-header">
-	<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
+	<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'NoticiasYa' ); ?></a>
 
 	<?php
 		if ( is_active_sidebar( 'header' ) ) {

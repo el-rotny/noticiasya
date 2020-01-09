@@ -37,8 +37,9 @@ function noticias_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 
+	// Displays after main conent.
 	register_sidebar( array(
-		'name'          => esc_html__( 'Single - After Content', 'NoticiasYa' ),
+		'name'          => esc_html__( 'Single | After Content', 'NoticiasYa' ),
 		'id'            => 'single-post__after-content',
 		'description'   => esc_html__( 'Add widgets here.', 'NoticiasYa' ),
 		'before_widget' => '<section id="%1$s" class="widget sidebar__item %2$s">',
@@ -46,6 +47,27 @@ function noticias_widgets_init() {
 		'before_title'  => '<h2 class="h4 widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Single | Read More Left', 'NoticiasYa' ),
+		'id'            => 'single-post__read-more-left',
+		'description'   => esc_html__( 'Add widgets here.', 'NoticiasYa' ),
+		'before_widget' => '<section id="%1$s" class="widget sidebar__item %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="h4 widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Single | Read More Right', 'NoticiasYa' ),
+		'id'            => 'single-post__read-more-right',
+		'description'   => esc_html__( 'Add widgets here.', 'NoticiasYa' ),
+		'before_widget' => '<section id="%1$s" class="widget sidebar__item %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="h4 widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer', 'NoticiasYa' ),
 		'id'            => 'footer',

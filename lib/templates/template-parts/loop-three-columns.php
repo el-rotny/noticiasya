@@ -39,14 +39,14 @@ while ( $data->have_posts() ) : $data->the_post();
    */
 
   $templates->set_template_data(array(
-    'display_thumb' => true,
-    'display_excerpt' => false,
-    'display_date' => false,
-    'display_byline' => true,
+    'display_thumb' => 1,
+    'display_excerpt' => 0,
+    'display_date' => 0,
+    'display_byline' => 1,
+    'is_loop' => 1
   ));
 
   $templates->get_template_part( 'template-parts/content', get_post_type() );
-
 
   ?>
 

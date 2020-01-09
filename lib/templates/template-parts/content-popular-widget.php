@@ -16,6 +16,7 @@ $display_thumb = isset($data->display_thumb) ? $data->display_thumb : true;
 $display_byline = isset($data->display_byline) ? $data->display_byline : true;
 $display_excerpt = isset($data->display_excerpt) ? $data->display_excerpt : true;
 $display_date = isset($data->display_date) ? $data->display_date : true;
+$is_loop = isset($data->is_loop) ? $data->is_loop : true;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($prefix_class . ' ' . $prefix_class . '--popular-posts' ); ?>>
@@ -44,10 +45,6 @@ $display_date = isset($data->display_date) ? $data->display_date : true;
 			?>
 		</div><!-- .entry-content -->
 		<?php endif; ?>
-
-		<footer class="entry-footer <?php echo $prefix_class . '__footer' ?>">
-			<?php get_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
 	</div>
 
 </article><!-- #post-<?php the_ID(); ?> -->

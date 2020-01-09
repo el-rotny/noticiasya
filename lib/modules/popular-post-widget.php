@@ -2,17 +2,17 @@
 /**
  * Plugin Name: Pageviews Widget
  * Description: A widget for the Pageviews plugin
- * Plugin URI: https://github.com/pressjitsu/pageviews-widget/
+ * Plugin URI: https://github.com/pressjitsu/popular-post-widget/
  * Version: 0.8-beta
  * License: GPLv3 or later
  */
-class Pageviews_Widget extends WP_Widget {
+class Popular_Post_Widget extends WP_Widget {
 	public function __construct() {
 		$args = array(
-			'classname' => 'pageviews-widget',
+			'classname' => 'popular-post-widget',
 			'description' => 'Display your most viewed content',
 		);
-		parent::__construct( 'pageviews-widget', 'Pageviews', $args );
+		parent::__construct( 'popular-post-widget', 'Popular Posts', $args );
 	}
 	public function widget( $args, $instance ) {
 		global $post;
@@ -24,7 +24,7 @@ class Pageviews_Widget extends WP_Widget {
 			'widget_id' => '',
 		) );
 
-		$cache_key = 'pageviews-widget-' . $this->id;
+		$cache_key = 'popular-post-widget-' . $this->id;
     delete_transient($cache_key);
 		$data = get_transient( $cache_key );
 		if ( ! $data ) {
@@ -158,7 +158,7 @@ class Pageviews_Widget extends WP_Widget {
 		$instance['title'] = ( ! empty( $new['title'] ) ) ? strip_tags( $new['title'] ) : '';
 		$instance['range'] = ( ! empty( $new['range'] ) && array_key_exists( $new['range'], self::get_ranges() ) ) ? $new['range'] : 'week';
 		$instance['limit'] = ( ! empty( $new['limit'] ) ) ? absint( $new['limit'] ) : 10;
-		$cache_key = 'pageviews-widget-' . $this->id;
+		$cache_key = 'popular-post-widget-' . $this->id;
 		delete_transient( $cache_key );
 		return $instance;
 	}
@@ -199,4 +199,4 @@ class Pageviews_Widget extends WP_Widget {
 		register_widget( __CLASS__ );
 	}
 }
-Pageviews_Widget::register();
+Popular_Post_Widget::register();

@@ -2225,6 +2225,7 @@ a:hover .post-single{text-decoration:none}
 .post-single .post-single__tools{float:right;width:30%;padding:.5em 1em}
 .post-single .post-single__body{color:#000}
 .post-single .post-single__header{color:#000}
+.post-single .post-single__comment-link a{font-family:"avenir-condensed",Impact,"Franklin Gothic Bold",sans-serif;font-size:20px;color:#000;letter-spacing:0;float:right;display:block;background-image:url("../images/comment-icon.png");background-repeat:no-repeat;padding-right:1.5em;background-position:center right}
 .post-single .post-single__title{max-width:100%;margin:20px auto;color:black;margin-bottom:0;padding-left:0;padding-right:0}
 .post-single .post-single__title .post-single__heading{font-family:"avenir",Helvetica,"Helvetica Neue","Arial Black",sans-serif;font-weight:900;line-height:1.2em;font-size:24px;text-transform:none}
 .post-single .post-single__title a{color:#b5b5b5}

@@ -44,6 +44,7 @@ while ( $data->have_posts() ) : $data->the_post();
     'display_date' => false,
     'display_author' => false,
     'display_byline' => $data->current_post > 1 ? false : true,
+    'is_loop' => true
   ));
 
   if($data->current_post === 0 ){

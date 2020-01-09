@@ -43,20 +43,26 @@ if ( ! function_exists( 'get_entry_footer' ) ) :
 
 		if ( is_single() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
+
 			comments_popup_link(
 				sprintf(
 					wp_kses(
-						/* translators: %s: post title */
-						__( 'Leave a Comment <span class="screen-reader-text">on %s</span>', 'NoticiasYa' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
+							/* translators: %s: post title */
+							__( 'Deja tu comentario <span class="screen-reader-text">en %s</span>', 'NoticiasYa' ),
+							array(
+								'span' => array(
+									'class' => array(),
+								),
+							)
+						),
+						get_the_title()
 					),
-					get_the_title()
-				)
+			    __( '1', 'NoticiasYa' ),
+			    __( '%', 'NoticiasYa' ),
+			    '', // CSS Class
+			    __( '', 'NoticiasYa' ) // Comments are Closed
 			);
+
 			echo '</span>';
 		}
 	}
@@ -338,14 +344,14 @@ if ( ! function_exists( 'get_content_header' ) ) :
 	/**
 	 * Get Content Header
 	 */
-	function get_content_header($prefix_class) {
+	function get_content_header($prefix_class, $is_loop) {
 		?>
 		<header class="entry-header <?php echo $prefix_class . '__title' ?>">
 			<?php
-			if ( is_singular() ) :
-				the_title( '<h1 class="post-single__heading entry-title">', '</h1>' );
+			if ( is_singular() && !$is_loop ) :
+				the_title( '<h1 class="'.$prefix_class.'__heading entry-title">', '</h1>' );
 			else :
-				the_title( '<h2 class="h6 post-card__heading entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				the_title( '<h2 class="h6 '.$prefix_class.'__heading entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			endif;
 			?>
 		</header><!-- .entry-header -->
@@ -357,12 +363,12 @@ if ( ! function_exists('get_byline') ) :
 	/**
 	 * Get meta information for the author
 	 */
-	function get_byline($display_date, $display_byline, $display_author = true, $prefix_class){
+	function get_byline($display_date, $display_byline, $display_author = true, $prefix_class, $is_loop = true){
 
 		$is_post = 'post' === get_post_type();
 		$display_meta = $display_date || $display_byline || $display_author;
 
-		if ( $display_meta && is_singular() ) :
+		if ( $display_meta && is_singular() && !$is_loop ) :
 			?>
 			<div class="entry-meta <?php echo $prefix_class . '__meta' ?>">
 				<?php
@@ -380,7 +386,7 @@ if ( ! function_exists('get_byline') ) :
 			</div><!-- .entry-meta -->
 		<?php endif;
 
-		if ( $display_meta && !is_singular() ) :
+		if ( $display_meta && (!is_singular() || $is_loop) ) :
 			?>
 
 			<div class="entry-meta <?php echo $prefix_class . '__meta' ?>">
